@@ -1,0 +1,37 @@
+# -------- Unity Generated Folders --------
+[Ll]ibrary/                  
+[Tt]emp/                     
+[Oo]bj/                     
+[Bb]uild/                    
+[Bb]uilds/                   
+[Ll]ogs/                    
+[Mm]emoryCaptures/           
+
+# -------- User-specific Settings --------
+UserSettings/                # local Editor settings
+*.csproj                     # VS project files
+*.sln                        # VS solution files
+*.suo                        # VS solution user options
+*.tmp                        # temp files
+*.user                       # user-specific preferences
+*.userprefs                  # Unity user prefs
+
+# -------- VS Code, Rider, MonoDevelop --------
+.vscode/
+.idea/
+*.pidb
+*.booproj
+*.svd
+
+# -------- Asset meta data --------
+# NOTE: You want to keep *.meta files under version control
+#       so Unity can properly track asset GUIDs.
+
+# -------- Uncomment if using Unity Collaborate --------
+# /collab/
+
+# -------- Large binary assets (optional) --------
+# If you have big audio/video files, consider using Git LFS:
+# *.psd filter=lfs diff=lfs merge=lfs -text
+# *.mp4 filter=lfs diff=lfs merge=lfs -text
+# *.wav filter=lfs diff=lfs merge=lfs -text
