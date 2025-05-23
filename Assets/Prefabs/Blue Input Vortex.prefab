@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 118986583974713601}
   - component: {fileID: 5430962465084110600}
   - component: {fileID: 6021024292353700688}
+  - component: {fileID: 886162266618198612}
   m_Layer: 0
   m_Name: Blue Input Vortex
   m_TagString: Untagged
@@ -106,3 +107,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &886162266618198612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7379263771374977679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3b6b4d5a91cfe41ab1a5a0246064d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  location: {x: 0, y: 0}
