@@ -10,11 +10,9 @@ public class MouseFollower : MonoBehaviour
     public GameObject ghostObject;
     public int rotation;
     public static MouseFollower instance;
-    public static Camera Camera;
     private void Awake()
     {
         instance = this;
-        Camera = cam;
     }
 
     private void Start()
