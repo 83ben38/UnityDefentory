@@ -1,18 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static AnimationController instance;
+    public List<Animator> animators = new();
+    private void Awake()
     {
-        
+        instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AnimationStart()
     {
-        
+        foreach (Animator animator in animators)
+        {
+            animator.enabled = true;
+        }
+
+        animators = new List<Animator>();
     }
+
 }
