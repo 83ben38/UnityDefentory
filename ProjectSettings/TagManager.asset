@@ -41,24 +41,30 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: UI
     uniqueID: 3776678325
     locked: 0
-  - name: Buildings
+  - name: Ghost
     uniqueID: 826053815
     locked: 0
-  - name: Shapes
+  - name: Enemies
     uniqueID: 729816913
     locked: 0
-  - name: Upper Buildings
+  - name: Enemy Vortex
     uniqueID: 3202528501
     locked: 0
   - name: Enemy Buildings
     uniqueID: 1547129311
     locked: 0
-  - name: Enemy Vortex
+  - name: Upper Buildings
     uniqueID: 1102967279
     locked: 0
-  - name: Enemies
+  - name: Shapes
     uniqueID: 287017477
+    locked: 0
+  - name: Buildings
+    uniqueID: 761794015
+    locked: 0
+  - name: Background
+    uniqueID: 1602957181
     locked: 0

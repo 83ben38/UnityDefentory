@@ -9,7 +9,12 @@ public class GridController : MonoBehaviour
 
    public static GridController instance;
 
-   public Tile startingVortex;
+   public Tile[] startingVortexes;
+
+   public void addToGrid(Tile tile)
+   {
+      grid[tile.location] = tile;
+   }
    public void Awake()
    {
       instance = this;
@@ -17,6 +22,9 @@ public class GridController : MonoBehaviour
 
    private void Start()
    {
-      grid[startingVortex.location] = startingVortex;
+      for (int i = 0; i < startingVortexes.Length; i++)
+      {
+         addToGrid(startingVortexes[i]);
+      }
    }
 }

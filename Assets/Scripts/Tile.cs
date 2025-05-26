@@ -5,4 +5,5 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public Vector2 location;
+    public int rotation;
 }
