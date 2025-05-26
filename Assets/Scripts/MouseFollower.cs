@@ -10,10 +10,11 @@ public class MouseFollower : MonoBehaviour
     public GameObject ghostObject;
     public int rotation;
     public static MouseFollower instance;
-
+    public static Camera Camera;
     private void Awake()
     {
         instance = this;
+        Camera = cam;
     }
 
     private void Start()
@@ -30,7 +31,7 @@ public class MouseFollower : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !Button.onAny)
         {
             if (prefab)
             {
@@ -42,7 +43,10 @@ public class MouseFollower : MonoBehaviour
                     tile.location = go.transform.position;
                     tile.rotation = rotation;
                     go.transform.eulerAngles = new Vector3(0, 0, rotation * 90);
-                    prefab = null;
+                    if (!Input.GetKey(KeyCode.LeftShift))
+                    {
+                        prefab = null;
+                    }
                 }
             }
         }

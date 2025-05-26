@@ -26,7 +26,7 @@ public class ButtonMaker : MonoBehaviour
     {
         for (int i = 0; i < items.Count; i++)
         {
-            items[i].transform.localPosition = new Vector3(((i+1) * 900f / (items.Count+1)),90f);
+            items[i].transform.localPosition = new Vector3(((i+1) * 900f / (items.Count+1)),70f);
         }
     }
 }
