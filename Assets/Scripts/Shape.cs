@@ -12,6 +12,10 @@ public class Shape : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GridController.instance.grid.ContainsKey(location))
+        {
+            Destroy(gameObject);
+        }
         Tile on = GridController.instance.grid[location];
         if (!on)
         {

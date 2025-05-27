@@ -11,7 +11,7 @@ public class ShapeSpawner : MonoBehaviour
         Animator animator = GetComponent<Animator>();
         animator.speed = 1.15f / cooldown;
         timeLeft = cooldown;
-        location = GetComponent<Tile>().location;
+        location = GetComponentInParent<Tile>().location;
     }
 
     private void FixedUpdate()
