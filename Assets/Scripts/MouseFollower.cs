@@ -4,8 +4,8 @@ using UnityEngine.UIElements;
 
 public class MouseFollower : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject prefab;
+
+    public Button selected;
     public Camera cam;
     public GameObject ghostObject;
     public int rotation;
@@ -15,15 +15,12 @@ public class MouseFollower : MonoBehaviour
         instance = this;
     }
 
-    private void Start()
-    {
-        setPrefab(prefab);
-    }
+   
 
-    public void setPrefab(GameObject prefab)
+    public void setPrefab(Button selected)
     {
-        this.prefab = prefab;
-        ghostObject.GetComponent<SpriteRenderer>().sprite = prefab.GetComponent<SpriteRenderer>().sprite;
+        this.selected = selected;
+        ghostObject.GetComponent<SpriteRenderer>().sprite = selected.prefab.GetComponent<SpriteRenderer>().sprite;
         rotation = 0;
         ghostObject.transform.eulerAngles = new Vector3(0, 0, 0);
     }
@@ -31,19 +28,20 @@ public class MouseFollower : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !Button.onAny)
         {
-            if (prefab)
+            if (selected)
             {
                 if (ghostObject.activeSelf)
                 {
-                    GameObject go = Instantiate(prefab);
+                    GameObject go = Instantiate(selected.prefab);
                     go.transform.position = ghostObject.transform.position;
-                    Tile tile = prefab.GetComponent<Tile>();
+                    Tile tile = selected.prefab.GetComponent<Tile>();
                     tile.location = go.transform.position;
                     tile.rotation = rotation;
                     go.transform.eulerAngles = new Vector3(0, 0, rotation * 90);
-                    if (!Input.GetKey(KeyCode.LeftShift))
+                    selected.setNumLeft(selected.numLeft - 1);
+                    if (!Input.GetKey(KeyCode.LeftShift) || selected.numLeft == 0)
                     {
-                        prefab = null;
+                        selected = null;
                     }
                 }
             }
@@ -54,9 +52,8 @@ public class MouseFollower : MonoBehaviour
             rotation %= 4;
             ghostObject.transform.eulerAngles = new Vector3(0, 0, rotation * 90);
         }
-        if (prefab)
+        if (selected)
         {
-            
             ghostObject.SetActive(true);
             Vector3 mouseScreenPosition = Input.mousePosition;
             Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(mouseScreenPosition);

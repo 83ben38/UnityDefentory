@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf048b92e1ed3d5479ef778e06f5cd6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2534619924203663601, guid: 7b49aa6d1e869114097a9f71fb5b17f9, type: 3}
+  selected: {fileID: 0}
   cam: {fileID: 519420031}
   ghostObject: {fileID: 1686447458}
   rotation: 0
@@ -461,12 +461,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 937, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -697,6 +697,7 @@ MonoBehaviour:
   - {fileID: 8623571972799993825, guid: 49223d863e106234fa6eaeba4946626f, type: 3}
   - {fileID: 2534619924203663601, guid: 7b49aa6d1e869114097a9f71fb5b17f9, type: 3}
   items: []
+  startingNums: 0100000003000000
   childPrefab: {fileID: 23458723571062754, guid: 17b01f6424115704180f1d3193530851, type: 3}
 --- !u!1 &1266335491
 GameObject:
@@ -707,7 +708,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1266335492}
-  - component: {fileID: 1266335493}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -731,21 +731,6 @@ Transform:
   - {fileID: 1095981982}
   m_Father: {fileID: 727231776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1266335493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266335491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab188ea7aed21ee49bddabd20ae883b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingItems: []
-  items: []
-  childPrefab: {fileID: 0}
 --- !u!1 &1478299485
 GameObject:
   m_ObjectHideFlags: 0

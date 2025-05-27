@@ -9,6 +9,7 @@ public class Button : MonoBehaviour, IPointerClickHandler
 {
     public GameObject childObject;
     public GameObject prefab;
+    public int numLeft = 1;
     public static bool onAny = false;
     private bool onThis = false;
     public void Start()
@@ -18,8 +19,21 @@ public class Button : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        MouseFollower.instance.setPrefab(prefab);
+        MouseFollower.instance.setPrefab(this);
     }
+
+    public void setNumLeft(int num)
+    {
+        numLeft = num;
+        if (numLeft < 1)
+        {
+            ButtonMaker.instance.items.Remove(gameObject);
+            ButtonMaker.instance.RespaceChildren();
+            Destroy(gameObject);
+        }
+    }
+
+    
 
     private void Update()
     {
@@ -28,7 +42,7 @@ public class Button : MonoBehaviour, IPointerClickHandler
             onAny = true;
             onThis = true;
             Vector3 position = transform.localPosition;
-            if (position.y < 120f)
+            if (position.y < 50f)
             {
                 transform.localPosition = new Vector3(position.x, position.y + 2f);
             }
@@ -40,7 +54,7 @@ public class Button : MonoBehaviour, IPointerClickHandler
                 onAny = false;
             }
             Vector3 position = transform.localPosition;
-            if (position.y > 70f)
+            if (position.y > -20f)
             {
                 transform.localPosition = new Vector3(position.x, position.y - 2f);
             }
