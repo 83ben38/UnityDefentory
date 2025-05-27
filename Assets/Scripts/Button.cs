@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ public class Button : MonoBehaviour, IPointerClickHandler
     public int numLeft = 1;
     public static bool onAny = false;
     private bool onThis = false;
+    public TextMeshProUGUI countText;
     public void Start()
     {
         childObject.GetComponent<Image>().sprite = prefab.GetComponent<SpriteRenderer>().sprite;
@@ -30,6 +32,15 @@ public class Button : MonoBehaviour, IPointerClickHandler
             ButtonMaker.instance.items.Remove(gameObject);
             ButtonMaker.instance.RespaceChildren();
             Destroy(gameObject);
+        }
+
+        if (numLeft > 1)
+        {
+            countText.text = "x" + numLeft;
+        }
+        else if (numLeft == 1)
+        {
+            countText.text = "";
         }
     }
 
