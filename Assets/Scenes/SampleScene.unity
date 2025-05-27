@@ -696,8 +696,9 @@ MonoBehaviour:
   startingItems:
   - {fileID: 8623571972799993825, guid: 49223d863e106234fa6eaeba4946626f, type: 3}
   - {fileID: 2534619924203663601, guid: 7b49aa6d1e869114097a9f71fb5b17f9, type: 3}
+  - {fileID: 2534619924203663601, guid: 6b3934915263840398c815e6fc874246, type: 3}
   items: []
-  startingNums: 0100000003000000
+  startingNums: 010000000300000001000000
   childPrefab: {fileID: 23458723571062754, guid: 17b01f6424115704180f1d3193530851, type: 3}
 --- !u!1 &1266335491
 GameObject:
