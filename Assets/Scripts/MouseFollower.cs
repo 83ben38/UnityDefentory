@@ -34,9 +34,10 @@ public class MouseFollower : MonoBehaviour
                 {
                     GameObject go = Instantiate(selected.prefab);
                     go.transform.position = ghostObject.transform.position;
-                    Tile tile = selected.prefab.GetComponent<Tile>();
+                    Tile tile = go.GetComponent<Tile>();
                     tile.location = go.transform.position;
                     tile.rotation = rotation;
+                    GridController.instance.addToGrid(tile);
                     go.transform.eulerAngles = new Vector3(0, 0, rotation * 90);
                     selected.setNumLeft(selected.numLeft - 1);
                     if (!Input.GetKey(KeyCode.LeftShift) || selected.numLeft == 0)
