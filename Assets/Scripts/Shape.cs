@@ -35,7 +35,7 @@ public class Shape : MonoBehaviour
             case Tile.Type.Belt: StartCoroutine(Belt()); break;
             case Tile.Type.Combiner: break;
             case Tile.Type.Turret: break;
-            case Tile.Type.Vortex: break;
+            case Tile.Type.Vortex: StartCoroutine(Vortex()); break;
             case Tile.Type.Spawner:
                 if (start)
                 {
