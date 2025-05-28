@@ -63,7 +63,11 @@ public class Shape : MonoBehaviour
             yield return null;
         }
 
-        ResourceManager.instance.resources[shapeType] = ResourceManager.instance.resources[shapeType] + 1;
+        if (!ResourceManager.instance.resources.ContainsKey(shapeType))
+        {
+            ResourceManager.instance.resources[shapeType] = 0;
+        }
+        ResourceManager.instance.resources[shapeType] += 1;
         Destroy(gameObject);
     }
     public IEnumerator Belt()
