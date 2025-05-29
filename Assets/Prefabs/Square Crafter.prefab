@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 5623133825130371412}
   - component: {fileID: 1621222762777700341}
   m_Layer: 0
-  m_Name: Circle Maker
+  m_Name: Square Crafter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,7 +195,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 63fccd0555d827645a6c4e1c7e4a3ee7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3793b1501184406fbb7d93edb0c0dd4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   location: {x: 0, y: 1}
   rotation: 0
-  tileType: 2
+  tileType: 6
 --- !u!1 &8709105705906240329
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,10 +231,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7508526368476276940}
   - component: {fileID: 6649242465416443449}
-  - component: {fileID: 9076969745595101278}
-  - component: {fileID: 4900874279862030352}
+  - component: {fileID: 2027759584410209398}
   m_Layer: 0
-  m_Name: Circle Maker
+  m_Name: Square Maker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,7 +295,7 @@ SpriteRenderer:
   m_SortingLayerID: -1092438795
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6a50e66f550d26c48bfec8f7e44b4f4f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f5aa375399ec24fa38555ec7fb78d030, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -307,7 +306,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &9076969745595101278
+--- !u!95 &2027759584410209398
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -317,7 +316,7 @@ Animator:
   m_GameObject: {fileID: 8709105705906240329}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bc399786a4623d9479e7490f245cd510, type: 2}
+  m_Controller: {fileID: 9100000, guid: f4423d4d7911b4dd98178d95382885f4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -328,17 +327,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4900874279862030352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8709105705906240329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ee7bdd4e08c1b7498ab083c7455a117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 1
-  prefab: {fileID: 6538570858703815912, guid: 590b173ba145b0847b34873c8da6d56b, type: 3}
