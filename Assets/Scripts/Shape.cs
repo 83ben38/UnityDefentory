@@ -10,7 +10,7 @@ public class Shape : MonoBehaviour
         Circle
     }
 
-    public Vector2 location;
+    public Vector2Int location;
 
     private void Start()
     {
@@ -29,7 +29,6 @@ public class Shape : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
         switch (on.tileType)
         {
             case Tile.Type.Belt: StartCoroutine(Belt()); break;
@@ -53,7 +52,7 @@ public class Shape : MonoBehaviour
     public IEnumerator Vortex()
     {
         Vector3 start = transform.position;
-        Vector3 end = location;
+        Vector3 end = new Vector3(location.x,location.y);
         Vector3 difference = end - start;
         float startingScale = transform.localScale.x;
         for (float i = 0; i < 1; i+=Time.deltaTime)
@@ -73,17 +72,17 @@ public class Shape : MonoBehaviour
     public IEnumerator Belt()
     {
         Tile on = GridController.instance.grid[location];
-        Vector2 desinationTile;
+        Vector2Int desinationTile;
         Vector3 start = transform.position;
         Vector3 end;
         if (on.rotation % 2 == 0)
         {
-            desinationTile = on.location + new Vector2(0,1-on.rotation);
+            desinationTile = on.location + new Vector2Int(0,1-on.rotation);
             end = new Vector3(start.x,desinationTile.y + Random.value * .7f - .35f);
         }
         else
         {
-            desinationTile = on.location + new Vector2(on.rotation-2,0);
+            desinationTile = on.location + new Vector2Int(on.rotation-2,0);
             end = new Vector3(desinationTile.x + Random.value * .7f - .35f,start.y);
         }
 

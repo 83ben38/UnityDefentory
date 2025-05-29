@@ -33,9 +33,11 @@ public class MouseFollower : MonoBehaviour
                 if (ghostObject.activeSelf)
                 {
                     GameObject go = Instantiate(selected.prefab);
-                    go.transform.position = ghostObject.transform.position;
+                    var position = go.transform.position;
+                    position = ghostObject.transform.position;
+                    go.transform.position = position;
                     Tile tile = go.GetComponent<Tile>();
-                    tile.location = go.transform.position;
+                    tile.location = new Vector2Int((int)position.x, (int)position.y);
                     tile.rotation = rotation;
                     GridController.instance.addToGrid(tile);
                     go.transform.eulerAngles = new Vector3(0, 0, rotation * 90);
@@ -61,7 +63,7 @@ public class MouseFollower : MonoBehaviour
             mouseWorldPosition.z = 0f;
             mouseWorldPosition.y = Mathf.RoundToInt(mouseWorldPosition.y);
             mouseWorldPosition.x = Mathf.RoundToInt(mouseWorldPosition.x);
-            if (GridController.instance.grid.ContainsKey(new Vector2(mouseWorldPosition.x, mouseWorldPosition.y)))
+            if (GridController.instance.grid.ContainsKey(new Vector2Int((int)mouseWorldPosition.x, (int)mouseWorldPosition.y)))
             {
                 ghostObject.SetActive(false);
             }

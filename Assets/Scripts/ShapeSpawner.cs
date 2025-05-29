@@ -5,7 +5,7 @@ public class ShapeSpawner : MonoBehaviour
     public float cooldown;
     private float timeLeft;
     public GameObject prefab;
-    private Vector2 location;
+    private Vector2Int location;
     private void Start()
     {
         Animator animator = GetComponent<Animator>();

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GridController : MonoBehaviour
 {
-   public Dictionary<Vector2, Tile> grid = new();
+   public Dictionary<Vector2Int, Tile> grid = new();
 
    public static GridController instance;
 

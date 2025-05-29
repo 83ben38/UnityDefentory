@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public Vector2 location;
+    public Vector2Int location;
     public int rotation;
     public Type tileType;
     public enum Type{
