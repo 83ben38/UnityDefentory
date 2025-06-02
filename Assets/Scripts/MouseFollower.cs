@@ -55,6 +55,11 @@ public class MouseFollower : MonoBehaviour
             rotation %= 4;
             ghostObject.transform.eulerAngles = new Vector3(0, 0, rotation * 90);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            selected = null;
+        }
         if (selected)
         {
             ghostObject.SetActive(true);

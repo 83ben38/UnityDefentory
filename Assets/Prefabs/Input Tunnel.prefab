@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7675290104242997763}
   - component: {fileID: 5535821479477722041}
   m_Layer: 0
-  m_Name: Yellow Belt
+  m_Name: Input Tunnel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 826053815
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6142461baca6b3c4fab09a0e0dfd3bdd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a80d3224817ef42e4a374104cd58530c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ Animator:
   m_GameObject: {fileID: 2534619924203663601}
   m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b676bceff09dbfb4baf66c03345c4b9c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
