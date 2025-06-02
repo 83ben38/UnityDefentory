@@ -96,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 6393787659063608826}
   m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b676bceff09dbfb4baf66c03345c4b9c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 046a6fe6c06b14b4ab039817438016cd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 7166868405420769393}
   - component: {fileID: 5623133825130371412}
   - component: {fileID: 1621222762777700341}
+  - component: {fileID: 2838530296377104567}
   m_Layer: 0
   m_Name: Square Crafter
   m_TagString: Untagged
@@ -221,6 +222,22 @@ MonoBehaviour:
   location: {x: 0, y: 1}
   rotation: 0
   tileType: 6
+--- !u!114 &2838530296377104567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8623571972799993825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a7727e005ed0774e80b7b89ed3f099e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 2
+  prefab: {fileID: 6538570858703815912, guid: 0f8379cb6adb6ad428c9082c450e95fb, type: 3}
+  requirements: 0000000000000000
+  animator: {fileID: 2027759584410209398}
 --- !u!1 &8709105705906240329
 GameObject:
   m_ObjectHideFlags: 0

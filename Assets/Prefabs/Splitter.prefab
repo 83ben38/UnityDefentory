@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   location: {x: 0, y: 1}
   rotation: 0
-  tileType: 0
+  tileType: 8
 --- !u!114 &5535821479477722041
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,8 @@ public class Shape : MonoBehaviour
 {
     public Type shapeType;
     public enum Type{
-        Circle
+        Circle,
+        Square
     }
 
     public Vector2Int location;
@@ -32,7 +33,25 @@ public class Shape : MonoBehaviour
         switch (on.tileType)
         {
             case Tile.Type.Belt: StartCoroutine(Belt()); break;
-            case Tile.Type.Combiner: break;
+            case Tile.Type.Splitter: StartCoroutine(Belt());
+                on.rotation += 2;
+                on.rotation %= 4; break;
+            case Tile.Type.Combiner:
+                if (start)
+                {
+                    StartCoroutine(Belt());
+                }
+                else
+                {
+                    Combiner combiner = on.GetComponent<Combiner>();
+                    if (!combiner.inventory.ContainsKey(shapeType))
+                    {
+                        combiner.inventory[shapeType] = 0;
+                    }
+                    combiner.inventory[shapeType]++;
+                    Destroy(gameObject);
+                }
+                break;
             case Tile.Type.Turret: break;
             case Tile.Type.Vortex: StartCoroutine(Vortex()); break;
             case Tile.Type.Spawner:
