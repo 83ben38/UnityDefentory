@@ -14,6 +14,7 @@ public class Tile : MonoBehaviour
         EnemyVortex,
         Combiner,
         Turret,
-        Splitter
+        Splitter,
+        Tunnel
     }
 }

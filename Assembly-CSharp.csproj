@@ -52,6 +52,7 @@
     <Compile Include="Assets\Scripts\Button.cs" />
     <Compile Include="Assets\Scripts\Managers\ResourceManager.cs" />
     <Compile Include="Assets\Scripts\Shape.cs" />
+    <Compile Include="Assets\Scripts\Tile Stuff\Tunnel.cs" />
     <Compile Include="Assets\Scripts\Managers\GridController.cs" />
     <Compile Include="Assets\Scripts\Tile Stuff\Tile.cs" />
     <Compile Include="Assets\Scripts\Tile Stuff\ShapeSpawner.cs" />

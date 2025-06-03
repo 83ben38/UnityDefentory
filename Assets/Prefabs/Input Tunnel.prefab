@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 99303267380196053}
   - component: {fileID: -7675290104242997763}
   - component: {fileID: 5535821479477722041}
+  - component: {fileID: 2867432005178777679}
+  - component: {fileID: -2164053026619217668}
   m_Layer: 0
   m_Name: Input Tunnel
   m_TagString: Untagged
@@ -122,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   location: {x: 0, y: 1}
   rotation: 0
-  tileType: 0
+  tileType: 9
 --- !u!114 &5535821479477722041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,3 +137,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2db67a55bb0947c4b41d61d105b1901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2867432005178777679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2534619924203663601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970593a1c96bcad41abe44ad29c7caa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outPrefab: {fileID: -2164053026619217668}
+  endingLocation: {x: 0, y: 0}
+--- !u!114 &-2164053026619217668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2534619924203663601}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0a71fc5b69c074780fb4e818b23d04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childObject: {fileID: 0}
+  prefab: {fileID: 2534619924203663601, guid: 17758531b54ef413f91296476d84a7f4, type: 3}
+  numLeft: 0
+  countText: {fileID: 0}

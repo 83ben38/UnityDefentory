@@ -338,6 +338,7 @@ MonoBehaviour:
   cam: {fileID: 519420031}
   ghostObject: {fileID: 1686447458}
   rotation: 0
+  inputTunnel: {fileID: 0}
 --- !u!4 &433827643
 Transform:
   m_ObjectHideFlags: 0
@@ -880,8 +881,9 @@ MonoBehaviour:
   - {fileID: 2534619924203663601, guid: 6b3934915263840398c815e6fc874246, type: 3}
   - {fileID: 8623571972799993825, guid: 5ad61cf55898b4c2fa305c50cb033194, type: 3}
   - {fileID: 2534619924203663601, guid: 858c97adfea4143169577b7a7b6e0b30, type: 3}
+  - {fileID: 2534619924203663601, guid: 473b66ce009c2429a96adee5c8a53033, type: 3}
   items: []
-  startingNums: 01000000030000000a0000000100000001000000
+  startingNums: 01000000030000000a000000010000000100000001000000
   childPrefab: {fileID: 23458723571062754, guid: 17b01f6424115704180f1d3193530851, type: 3}
 --- !u!1 &1266335491
 GameObject:

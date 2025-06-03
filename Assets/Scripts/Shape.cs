@@ -12,7 +12,7 @@ public class Shape : MonoBehaviour
     }
 
     public Vector2Int location;
-
+    public SpriteRenderer spriteRenderer;
     private void Start()
     {
         CheckLocation(true);
@@ -64,6 +64,7 @@ public class Shape : MonoBehaviour
                     Destroy(gameObject);
                 }
                 break;
+            case Tile.Type.Tunnel: StartCoroutine(Tunnel()); break;
             default: Destroy(gameObject); break;
         }
     }
@@ -109,6 +110,33 @@ public class Shape : MonoBehaviour
         for (float i = 0; i < difference.magnitude; i+=Time.deltaTime)
         {
             transform.position = start + difference * i / difference.magnitude;
+            yield return null;
+        }
+
+        transform.position = end;
+        location = desinationTile;
+        CheckLocation(false);
+    }
+    public IEnumerator Tunnel()
+    {
+        Tile on = GridController.instance.grid[location];
+        Vector2Int desinationTile = on.GetComponent<Tunnel>().endingLocation;
+        Vector3 start = transform.position;
+        Vector3 end;
+        end = new Vector3(desinationTile.x,desinationTile.y);
+
+        Vector3 difference = end - start;
+        for (float i = 0; i < difference.magnitude; i+=Time.deltaTime)
+        {
+            transform.position = start + difference * i / difference.magnitude;
+            if ((transform.position - new Vector3(on.location.x,on.location.y)).sqrMagnitude > 0.1f && (transform.position - new Vector3(desinationTile.x,desinationTile.y)).sqrMagnitude > 0.1f)
+            {
+                spriteRenderer.enabled = false;
+            }
+            else
+            {
+                spriteRenderer.enabled = true;
+            }
             yield return null;
         }
 
