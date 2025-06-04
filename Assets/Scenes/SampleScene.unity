@@ -342,7 +342,7 @@ MonoBehaviour:
   ghostObject: {fileID: 1686447458}
   rotation: 0
   inputTunnel: {fileID: 0}
-  oldButton: {fileID: 0}
+  card: {fileID: 0}
 --- !u!4 &433827643
 Transform:
   m_ObjectHideFlags: 0
@@ -746,14 +746,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingItems:
-  - {fileID: 8623571972799993825, guid: 49223d863e106234fa6eaeba4946626f, type: 3}
-  - {fileID: 2534619924203663601, guid: 7b49aa6d1e869114097a9f71fb5b17f9, type: 3}
-  - {fileID: 2534619924203663601, guid: 6b3934915263840398c815e6fc874246, type: 3}
-  - {fileID: 8623571972799993825, guid: 5ad61cf55898b4c2fa305c50cb033194, type: 3}
-  - {fileID: 2534619924203663601, guid: 858c97adfea4143169577b7a7b6e0b30, type: 3}
-  - {fileID: 2534619924203663601, guid: 473b66ce009c2429a96adee5c8a53033, type: 3}
+  - {fileID: 11400000, guid: 83d56f605ea695946bea29e3992cf47e, type: 2}
+  - {fileID: 11400000, guid: 13237a2dd963cd34989ba221ce0f299c, type: 2}
+  - {fileID: 11400000, guid: 9fd72a2ce38cf2e4194d62c8e57f633a, type: 2}
   items: []
-  startingNums: 01000000030000000a000000010000000100000001000000
   childPrefab: {fileID: 23458723571062754, guid: 17b01f6424115704180f1d3193530851, type: 3}
 --- !u!1 &1266335491
 GameObject:

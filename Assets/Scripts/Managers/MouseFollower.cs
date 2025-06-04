@@ -11,7 +11,8 @@ public class MouseFollower : MonoBehaviour
     public int rotation;
     public static MouseFollower instance;
     public Tunnel inputTunnel;
-    public Button oldButton;
+    public Card card;
+    
     private void Awake()
     {
         instance = this;
@@ -19,6 +20,13 @@ public class MouseFollower : MonoBehaviour
 
    
 
+    public void setPrefab(Card selected)
+    {
+        card = selected;
+        ghostObject.GetComponent<SpriteRenderer>().sprite = card.display;
+        rotation = 0;
+        ghostObject.transform.eulerAngles = new Vector3(0, 0, 0);
+    }
     public void setPrefab(Button selected)
     {
         if (inputTunnel)
@@ -27,19 +35,19 @@ public class MouseFollower : MonoBehaviour
             inputTunnel = null;
         }
         this.selected = selected;
-        ghostObject.GetComponent<SpriteRenderer>().sprite = selected.prefab.GetComponent<SpriteRenderer>().sprite;
-        rotation = 0;
-        ghostObject.transform.eulerAngles = new Vector3(0, 0, 0);
+        setPrefab(selected.info);
     }
     void Update()
     {
+        
+
         if (Input.GetMouseButtonDown(0) && !Button.onAny)
         {
             if (selected)
             {
                 if (ghostObject.activeSelf)
                 {
-                    GameObject go = Instantiate(selected.prefab);
+                    GameObject go = Instantiate(card.prefab);
                     var position = go.transform.position;
                     position = ghostObject.transform.position;
                     go.transform.position = position;
@@ -52,26 +60,23 @@ public class MouseFollower : MonoBehaviour
                     {
                         inputTunnel.endingLocation = tile.location;
                         inputTunnel = null;
-                        selected = oldButton;
-                        oldButton = null;
-                        selected.setNumLeft(selected.numLeft - 1);
+                        selected.setNumLeft(card.numLeft - 1);
                     }
                     if (tile.tileType != Tile.Type.Tunnel)
                     {
-                        selected.setNumLeft(selected.numLeft - 1);
+                        selected.setNumLeft(card.numLeft - 1);
                     }
                     if (tile.tileType == Tile.Type.Tunnel)
                     {
                         Tunnel t = tile.GetComponent<Tunnel>();
                         int prevRotation = rotation;
-                        oldButton = selected;
                         setPrefab(t.outPrefab);
                         inputTunnel = t;
                         t.currentLocation = tile.location;
                         rotation = prevRotation;
                         ghostObject.transform.eulerAngles = new Vector3(0, 0, rotation * 90);
                     }
-                    else if (!Input.GetKey(KeyCode.LeftShift) || selected.numLeft == 0)
+                    else if (!Input.GetKey(KeyCode.LeftShift) || card.numLeft == 0)
                     {
                         selected = null;
                     }

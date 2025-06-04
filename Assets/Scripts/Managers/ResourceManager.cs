@@ -23,13 +23,12 @@ public class ResourceManager : MonoBehaviour
             if (!texts.ContainsKey(type))
             {
                 GameObject go = Instantiate(childPrefab, transform);
+                go.transform.localPosition = new Vector3((texts.Count%5)*150,(texts.Count/5)*150);
                 texts[type] = go.GetComponentInChildren<TextMeshProUGUI>();
-                go.GetComponent<Image>().sprite = shapes[(int)type];
+                go.GetComponentInChildren<Image>().sprite = shapes[(int)type];
             }
             else
             {
-                Debug.Log(texts[type]);
-                Debug.Log(resources[type]);
                 texts[type].text = resources[type].ToString();
             }
         }

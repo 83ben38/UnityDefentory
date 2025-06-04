@@ -52,7 +52,15 @@ public class Shape : MonoBehaviour
                     Destroy(gameObject);
                 }
                 break;
-            case Tile.Type.Turret: break;
+            case Tile.Type.Turret: 
+                Turret turret = on.GetComponent<Turret>();
+                if (!turret.inventory.ContainsKey(shapeType))
+                {
+                    turret.inventory[shapeType] = 0;
+                }
+                turret.inventory[shapeType]++;
+                Destroy(gameObject);
+                break;
             case Tile.Type.Vortex: StartCoroutine(Vortex()); break;
             case Tile.Type.Spawner:
                 if (start)
