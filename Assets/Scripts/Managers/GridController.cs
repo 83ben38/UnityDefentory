@@ -14,6 +14,7 @@ public class GridController : MonoBehaviour
    public void addToGrid(Tile tile)
    {
       grid[tile.location] = tile;
+      EnemyPathingManager.instance.DoPathing();
    }
    public void Awake()
    {

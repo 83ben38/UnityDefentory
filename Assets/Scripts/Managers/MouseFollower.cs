@@ -60,11 +60,11 @@ public class MouseFollower : MonoBehaviour
                     {
                         inputTunnel.endingLocation = tile.location;
                         inputTunnel = null;
-                        selected.setNumLeft(card.numLeft - 1);
+                        selected.setNumLeft(selected.numLeft - 1);
                     }
                     if (tile.tileType != Tile.Type.Tunnel)
                     {
-                        selected.setNumLeft(card.numLeft - 1);
+                        selected.setNumLeft(selected.numLeft - 1);
                     }
                     if (tile.tileType == Tile.Type.Tunnel)
                     {
@@ -76,7 +76,7 @@ public class MouseFollower : MonoBehaviour
                         rotation = prevRotation;
                         ghostObject.transform.eulerAngles = new Vector3(0, 0, rotation * 90);
                     }
-                    else if (!Input.GetKey(KeyCode.LeftShift) || card.numLeft == 0)
+                    else if (!Input.GetKey(KeyCode.LeftShift) || selected.numLeft == 0)
                     {
                         selected = null;
                     }

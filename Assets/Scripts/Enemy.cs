@@ -1,0 +1,111 @@
+
+using System.Collections;
+using UnityEngine;
+
+public class Enemy : MonoBehaviour
+{
+    public Type shapeType;
+    public enum Type{
+        Circle,
+        Square
+    }
+
+    public Vector2Int location;
+    public SpriteRenderer spriteRenderer;
+    private void Start()
+    {
+        CheckLocation(true);
+    }
+
+    private void CheckLocation(bool start)
+    {
+        if (start)
+        {
+            StartCoroutine(StartTile());
+            return;
+        }
+        if (!GridController.instance.grid.ContainsKey(location))
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        if (EnemyPathingManager.instance.isEnd(location))
+        {
+            StartCoroutine(Vortex());
+            return;
+        }
+        Tile on = GridController.instance.grid[location];
+        if (!on)
+        {
+            Destroy(gameObject);
+        }
+        switch (on.tileType)
+        {
+            case Tile.Type.EnemyBelt: StartCoroutine(Belt()); break;
+            default: Destroy(gameObject); break;
+        }
+    }
+    public IEnumerator StartTile()
+    {
+        Tile on = GridController.instance.grid[location];
+        Vector2Int desinationTile;
+        Vector3 start = transform.position;
+        Vector3 end;
+        Tile endingTile = EnemyPathingManager.instance.getNextTile();
+        desinationTile = endingTile.location;
+        end = new Vector3(desinationTile.x,desinationTile.y);
+        Vector3 difference = end - start;
+        for (float i = 0; i < difference.magnitude; i+=Time.deltaTime)
+        {
+            transform.position = start + difference * i / difference.magnitude;
+            yield return null;
+        }
+
+        transform.position = end;
+        location = desinationTile;
+        CheckLocation(false);
+    }
+    public IEnumerator Vortex()
+    {
+        Vector3 start = transform.position;
+        Vector3 end = new Vector3(location.x,location.y);
+        Vector3 difference = end - start;
+        float startingScale = transform.localScale.x;
+        for (float i = 0; i < 1; i+=Time.deltaTime)
+        {
+            transform.position = start + difference * i;
+            transform.localScale = new Vector3(startingScale * (1-i),startingScale * (1-i));
+            yield return null;
+        }
+        Destroy(gameObject);
+    }
+    public IEnumerator Belt()
+    {
+        Tile on = GridController.instance.grid[location];
+        Vector2Int desinationTile;
+        Vector3 start = transform.position;
+        Vector3 end;
+        if (on.rotation % 2 == 0)
+        {
+            desinationTile = on.location + new Vector2Int(0,1-on.rotation);
+            end = new Vector3(start.x,desinationTile.y + Random.value * .7f - .35f);
+        }
+        else
+        {
+            desinationTile = on.location + new Vector2Int(on.rotation-2,0);
+            end = new Vector3(desinationTile.x + Random.value * .7f - .35f,start.y);
+        }
+
+        Vector3 difference = end - start;
+        for (float i = 0; i < difference.magnitude; i+=Time.deltaTime)
+        {
+            transform.position = start + difference * i / difference.magnitude;
+            yield return null;
+        }
+
+        transform.position = end;
+        location = desinationTile;
+        CheckLocation(false);
+    }
+}

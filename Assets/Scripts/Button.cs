@@ -10,6 +10,7 @@ public class Button : MonoBehaviour, IPointerClickHandler
     public static bool onAny = false;
     private bool onThis = false;
     public TextMeshProUGUI countText;
+    public int numLeft;
     public void Start()
     {
         childObject.GetComponent<Image>().sprite = info.prefab.GetComponent<SpriteRenderer>().sprite;
@@ -22,19 +23,19 @@ public class Button : MonoBehaviour, IPointerClickHandler
 
     public void setNumLeft(int num)
     {
-        info.numLeft = num;
-        if (info.numLeft < 1)
+        numLeft = num;
+        if (numLeft < 1)
         {
             ButtonMaker.instance.items.Remove(gameObject);
             ButtonMaker.instance.RespaceChildren();
             Destroy(gameObject);
         }
 
-        if (info.numLeft > 1)
+        if (numLeft > 1)
         {
-            countText.text = "x" + info.numLeft;
+            countText.text = "x" + numLeft;
         }
-        else if (info.numLeft == 1)
+        else if (numLeft == 1)
         {
             countText.text = "";
         }

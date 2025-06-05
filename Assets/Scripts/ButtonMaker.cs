@@ -6,8 +6,10 @@ public class ButtonMaker : MonoBehaviour
 {
     public List<Card> startingItems = new List<Card>();
     public List<GameObject> items = new List<GameObject>();
+    public List<int> startingNums = new List<int>();
     public GameObject childPrefab;
     public static ButtonMaker instance;
+    
 
     private void Awake()
     {
@@ -18,15 +20,15 @@ public class ButtonMaker : MonoBehaviour
     {
         for (int i = 0; i < startingItems.Count; i++)
         {
-            CreateChild(startingItems[i]);
+            CreateChild(startingItems[i],startingNums[i]);
         }
     }
 
-    public void CreateChild(Card c)
+    public void CreateChild(Card c, int startingNum = 1)
     {
         Button b = childPrefab.GetComponent<Button>();
         b.info = c;
-        b.setNumLeft(c.numLeft);
+        b.setNumLeft(startingNum);
         items.Add(Instantiate(childPrefab));
         items[^1].transform.SetParent(transform);
         RespaceChildren();
