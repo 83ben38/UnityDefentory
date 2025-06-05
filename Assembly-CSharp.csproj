@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\Tile Stuff\Tile.cs" />
     <Compile Include="Assets\Scripts\Tile Stuff\ShapeSpawner.cs" />
     <Compile Include="Assets\Scripts\AnimationSync.cs" />
+    <Compile Include="Assets\Scripts\Managers\EnemySpawnManager.cs" />
     <Compile Include="Assets\Scripts\Managers\Animation Controller.cs" />
     <Compile Include="Assets\Scripts\Managers\EnemyPathingManager.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

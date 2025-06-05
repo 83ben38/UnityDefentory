@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     private void Start()
     {
+        location = new Vector2Int(0, 0);
         CheckLocation(true);
     }
 
@@ -24,15 +25,14 @@ public class Enemy : MonoBehaviour
             StartCoroutine(StartTile());
             return;
         }
-        if (!GridController.instance.grid.ContainsKey(location))
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         if (EnemyPathingManager.instance.isEnd(location))
         {
             StartCoroutine(Vortex());
+            return;
+        }
+        if (!GridController.instance.grid.ContainsKey(location))
+        {
+            Destroy(gameObject);
             return;
         }
         Tile on = GridController.instance.grid[location];

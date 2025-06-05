@@ -63,6 +63,7 @@ public class EnemyPathingManager : MonoBehaviour
             {
                 newLocations.Add(new Vector2Int(i, 0));
                 newLocations.Add(new Vector2Int(0,i));
+                
             }
         }
         else
