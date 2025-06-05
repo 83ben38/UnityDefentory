@@ -5,8 +5,10 @@ public class EnemyPathingManager : MonoBehaviour
 {
     public GameObject outPrefab;
     public static EnemyPathingManager instance;
+    [SerializeField]
     private List<Tile> outputVortexes = new List<Tile>();
-    private List<Tile> possibleStarts = new List<Tile>();
+    [SerializeField]
+    private List<Vector2Int> possibleStarts = new List<Vector2Int>();
     private int on = 0;
     private void Awake()
     {
@@ -26,10 +28,10 @@ public class EnemyPathingManager : MonoBehaviour
         return false;
     }
 
-    public Tile getNextTile()
+    public Vector2Int getNextTile()
     {
         on %= possibleStarts.Count;
-        Tile tile = possibleStarts[on];
+        Vector2Int tile = possibleStarts[on];
         on++;
         return tile;
     }
@@ -37,14 +39,15 @@ public class EnemyPathingManager : MonoBehaviour
     {
 
         List<Vector2Int> newLocations = new List<Vector2Int>();
-        possibleStarts = new List<Tile>();
+        possibleStarts = new List<Vector2Int>();
+        bool addToNewLocations = false;
         for (int i = -1; i < 2; i+=2)
         {
             if (GridController.instance.grid.ContainsKey(new Vector2Int(0, i)))
             {
                 if (GridController.instance.grid[new Vector2Int(0, i)].tileType == Tile.Type.EnemyBelt)
                 {
-                    possibleStarts.Add(GridController.instance.grid[new Vector2Int(0, i)]);
+                    possibleStarts.Add(new Vector2Int(0, i));
                 }
                
             }
@@ -52,25 +55,25 @@ public class EnemyPathingManager : MonoBehaviour
             {
                 if (GridController.instance.grid[new Vector2Int(i,0)].tileType == Tile.Type.EnemyBelt)
                 {
-                    possibleStarts.Add(GridController.instance.grid[new Vector2Int(i,0)]);
+                    possibleStarts.Add(new Vector2Int(i,0));
                 }
             }
         }
 
         if (possibleStarts.Count == 0)
         {
+            addToNewLocations = true;
             for (int i = -1; i < 2; i+=2)
             {
                 newLocations.Add(new Vector2Int(i, 0));
                 newLocations.Add(new Vector2Int(0,i));
-                
             }
         }
         else
         {
-            foreach (Tile start in possibleStarts)
+            foreach (Vector2Int start in possibleStarts)
             {
-                List<Vector2Int> vortexes = findEnds(start.location, new List<Vector2Int>());
+                List<Vector2Int> vortexes = findEnds(start, new List<Vector2Int>());
                newLocations.AddRange(vortexes);
             }
         }
@@ -94,6 +97,14 @@ public class EnemyPathingManager : MonoBehaviour
             go.transform.position = new Vector3(vortex.x,vortex.y);
             outputVortexes.Add(go.GetComponent<Tile>());
             outputVortexes[^1].location = vortex;
+            
+        }
+        if (addToNewLocations)
+        {
+            for (int i = 0; i < outputVortexes.Count; i++)
+            {
+                possibleStarts.Add(outputVortexes[i].location);
+            }
         }
     }
 

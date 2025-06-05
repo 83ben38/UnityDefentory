@@ -52,8 +52,7 @@ public class Enemy : MonoBehaviour
         Vector2Int desinationTile;
         Vector3 start = transform.position;
         Vector3 end;
-        Tile endingTile = EnemyPathingManager.instance.getNextTile();
-        desinationTile = endingTile.location;
+        desinationTile = EnemyPathingManager.instance.getNextTile();
         end = new Vector3(desinationTile.x,desinationTile.y);
         Vector3 difference = end - start;
         for (float i = 0; i < difference.magnitude; i+=Time.deltaTime)
