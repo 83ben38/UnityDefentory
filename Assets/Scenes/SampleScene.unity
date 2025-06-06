@@ -323,6 +323,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outPrefab: {fileID: 7379263771374977679, guid: f11836235e7176b4e90c904575ca2c79, type: 3}
+  outputVortexes: []
+  possibleStarts: []
 --- !u!114 &205937770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,8 +337,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447fd9263d69ab647a4a69cbb7d0df0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6538570858703815912, guid: 793657a01ff52ec40aacd5b53f391065, type: 3}
-  timeLeft: 3
+  difficulty: {fileID: 11400000, guid: 6c6d7aac720cc0d44855b13f67e90910, type: 2}
+  credits: 0
+  time: 0
+  difficultyScaling: 0
+  sizes:
+  - 0.15
+  - 0.2
+  - 0.3
+  - 0.4
+  - 0.55
+  - 0.75
 --- !u!1 &433827641
 GameObject:
   m_ObjectHideFlags: 0

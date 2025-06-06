@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     private void Start()
     {
+        transform.position = Vector3.zero;
         location = new Vector2Int(0, 0);
         CheckLocation(true);
     }

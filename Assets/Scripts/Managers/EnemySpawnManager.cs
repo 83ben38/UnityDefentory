@@ -1,19 +1,88 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySpawnManager : MonoBehaviour
 {
-
-    public GameObject enemyPrefab;
-    public float timeLeft;
-
+    public Difficulty difficulty;
+    public float credits = 0;
+    public float time = 0f;
+    public float difficultyScaling = 0f;
     private void FixedUpdate()
     {
-        if (timeLeft <= 0)
+        time += Time.fixedDeltaTime;
+        difficultyScaling += difficulty.difficultyScaling * Time.fixedDeltaTime;
+        credits += difficultyScaling *  Time.fixedDeltaTime;
+        float randomValue = Random.value;
+        if (randomValue < credits / (difficultyScaling * 100))
         {
-            Instantiate(enemyPrefab).transform.position = Vector3.zero;
-            timeLeft += 3;
+            TrySpawnEnemy();
         }
-        timeLeft -= Time.fixedDeltaTime;
+    }
+
+    public float[] sizes;
+    public void TrySpawnEnemy()
+    {
+        SpawnCard sc = difficulty.getNextCard(time);
+        if (sc.cost > credits)
+        {
+            return;
+        }
+        float randomValue = Random.value;
+        if (randomValue < 1 / 3f)
+        {
+            int size = 1;
+            while (credits >= sc.cost * Mathf.Pow(5, size))
+            {
+                size++;
+            }
+            credits -= sc.cost * Mathf.Pow(5, size-1);
+            float scale = size >= sizes.Length ? sizes[^1] : sizes[size];
+            Instantiate(sc.prefab).transform.localScale = new Vector3(scale,scale);
+            //one big enemy
+        }
+        else if (randomValue < 2 / 3f)
+        {
+            int size = 1;
+            while (credits >= sc.cost * Mathf.Pow(5, size) * 3)
+            {
+                size++;
+            }
+
+            int toSpawn = 0;
+            while (credits >= sc.cost * Mathf.Pow(5, size-1))
+            { 
+                credits -= sc.cost * Mathf.Pow(5, size-1);
+                toSpawn++;
+            }
+            float scale = size >= sizes.Length ? sizes[^1] : sizes[size];
+            for (int i = 0; i < toSpawn; i++)
+            {
+                Instantiate(sc.prefab).transform.localScale = new Vector3(scale,scale);
+            }
+            //spaced enemies
+        }
+        else
+        {
+            int size = 1;
+            while (credits >= sc.cost * Mathf.Pow(5, size) * 10)
+            {
+                size++;
+            }
+
+            int toSpawn = 0;
+            while (credits >= sc.cost * Mathf.Pow(5, size-1))
+            { 
+                credits -= sc.cost * Mathf.Pow(5, size-1);
+                toSpawn++;
+            }
+            float scale = size >= sizes.Length ? sizes[^1] : sizes[size];
+            for (int i = 0; i < toSpawn; i++)
+            {
+                Instantiate(sc.prefab).transform.localScale = new Vector3(scale,scale);
+            }
+            // grouped enemies
+        }
     }
 }
