@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -84,5 +85,16 @@ public class EnemySpawnManager : MonoBehaviour
             }
             // grouped enemies
         }
+    }
+
+    public IEnumerator WaitSpawn(GameObject prefab, Vector3 scale, float timeToWait)
+    {
+        float time = 0;
+        while (time < timeToWait)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+        Instantiate(prefab).transform.localScale = scale;
     }
 }
