@@ -16,7 +16,10 @@ public class AnimationController : MonoBehaviour
     {
         foreach (Animator animator in animators)
         {
-            animator.enabled = true;
+            if (animator != null)
+            {
+                animator.enabled = true;
+            }
         }
 
         animators = new List<Animator>();

@@ -16,7 +16,7 @@ public class EnemySpawnManager : MonoBehaviour
         difficultyScaling += difficulty.difficultyScaling * Time.fixedDeltaTime;
         credits += difficultyScaling *  Time.fixedDeltaTime;
         float randomValue = Random.value;
-        if (randomValue < credits / (difficultyScaling * 100))
+        if (randomValue < credits / (difficultyScaling * 1000))
         {
             TrySpawnEnemy();
         }
@@ -46,7 +46,7 @@ public class EnemySpawnManager : MonoBehaviour
         else if (randomValue < 2 / 3f)
         {
             int size = 1;
-            while (credits >= sc.cost * Mathf.Pow(5, size) * 3)
+            while (credits >= sc.cost * Mathf.Pow(5, size) * 2)
             {
                 size++;
             }
@@ -60,14 +60,14 @@ public class EnemySpawnManager : MonoBehaviour
             float scale = size >= sizes.Length ? sizes[^1] : sizes[size];
             for (int i = 0; i < toSpawn; i++)
             {
-                Instantiate(sc.prefab).transform.localScale = new Vector3(scale,scale);
+                StartCoroutine(WaitSpawn(sc.prefab,new Vector3(scale,scale),i*0.5f));
             }
             //spaced enemies
         }
         else
         {
             int size = 1;
-            while (credits >= sc.cost * Mathf.Pow(5, size) * 10)
+            while (credits >= sc.cost * Mathf.Pow(5, size) * 5)
             {
                 size++;
             }
@@ -81,7 +81,7 @@ public class EnemySpawnManager : MonoBehaviour
             float scale = size >= sizes.Length ? sizes[^1] : sizes[size];
             for (int i = 0; i < toSpawn; i++)
             {
-                Instantiate(sc.prefab).transform.localScale = new Vector3(scale,scale);
+                StartCoroutine(WaitSpawn(sc.prefab,new Vector3(scale,scale),i*0.2f));
             }
             // grouped enemies
         }

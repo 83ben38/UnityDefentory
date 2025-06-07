@@ -5,7 +5,7 @@ using UnityEngine;
 public class ButtonMaker : MonoBehaviour
 {
     public List<Card> startingItems = new List<Card>();
-    public List<GameObject> items = new List<GameObject>();
+    public List<Button> items = new List<Button>();
     public List<int> startingNums = new List<int>();
     public GameObject childPrefab;
     public static ButtonMaker instance;
@@ -26,10 +26,18 @@ public class ButtonMaker : MonoBehaviour
 
     public void CreateChild(Card c, int startingNum = 1)
     {
+        for (int i = 0; i < items.Count; i++)
+        {
+            if (items[i].info == c)
+            {
+                items[i].setNumLeft(items[i].numLeft + startingNum);
+                return;
+            }
+        }
         Button b = childPrefab.GetComponent<Button>();
         b.info = c;
         b.setNumLeft(startingNum);
-        items.Add(Instantiate(childPrefab));
+        items.Add(Instantiate(childPrefab).GetComponent<Button>());
         items[^1].transform.SetParent(transform);
         RespaceChildren();
     }

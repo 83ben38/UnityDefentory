@@ -39,7 +39,29 @@ public class MouseFollower : MonoBehaviour
     }
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(2) && !Button.onAny)
+        {
+            Vector3 mouseScreenPosition = Input.mousePosition;
+            Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(mouseScreenPosition);
+            mouseWorldPosition.z = 0f;
+            mouseWorldPosition.y = Mathf.RoundToInt(mouseWorldPosition.y);
+            mouseWorldPosition.x = Mathf.RoundToInt(mouseWorldPosition.x);
+            Vector2Int pos = new Vector2Int((int)mouseWorldPosition.x, (int)mouseWorldPosition.y);
+            if (GridController.instance.grid.ContainsKey(pos))
+            {
+                Tile t = GridController.instance.grid[pos];
+                ButtonMaker.instance.CreateChild(t.spawnCard);
+                Shape.Type shapeType = t.spawnCard.costType;
+                if (!ResourceManager.instance.resources.ContainsKey(shapeType))
+                {
+                    ResourceManager.instance.resources[shapeType] = 0;
+                }
+                ResourceManager.instance.resources[shapeType] += t.spawnCard.costAmount / 2;
+                Destroy(t.gameObject);
+                GridController.instance.grid.Remove(pos);
+                EnemyPathingManager.instance.DoPathing();
+            }
+        }
 
         if (Input.GetMouseButtonDown(0) && !Button.onAny)
         {
@@ -54,6 +76,7 @@ public class MouseFollower : MonoBehaviour
                     Tile tile = go.GetComponent<Tile>();
                     tile.location = new Vector2Int((int)position.x, (int)position.y);
                     tile.rotation = rotation;
+                    tile.spawnCard = card;
                     GridController.instance.addToGrid(tile);
                     go.transform.eulerAngles = new Vector3(0, 0, rotation * 90);
                     if (inputTunnel)

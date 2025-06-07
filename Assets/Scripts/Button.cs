@@ -28,7 +28,6 @@ public class Button : MonoBehaviour, IPointerClickHandler
             priceText.text = "Free!";
         }
     }
-
     public void OnPointerClick(PointerEventData eventData)
     {
         if (info.costAmount == 0 || ResourceManager.instance.resources.ContainsKey(info.costType) &&
@@ -43,7 +42,7 @@ public class Button : MonoBehaviour, IPointerClickHandler
         numLeft = num;
         if (numLeft < 1)
         {
-            ButtonMaker.instance.items.Remove(gameObject);
+            ButtonMaker.instance.items.Remove(this);
             ButtonMaker.instance.RespaceChildren();
             Destroy(gameObject);
         }
