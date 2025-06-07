@@ -64,19 +64,29 @@ public class MouseFollower : MonoBehaviour
                     }
                     if (tile.tileType != Tile.Type.Tunnel)
                     {
+                        if (card.costAmount > 0)
+                        {
+                            ResourceManager.instance.resources[card.costType] -= card.costAmount;
+                        }
+
                         selected.setNumLeft(selected.numLeft - 1);
                     }
                     if (tile.tileType == Tile.Type.Tunnel)
                     {
                         Tunnel t = tile.GetComponent<Tunnel>();
                         int prevRotation = rotation;
+                        int prevCost = card.costAmount;
+                        Shape.Type costType = card.costType;
                         setPrefab(t.outPrefab);
+                        card.costAmount = prevCost;
+                        card.costType = costType;
                         inputTunnel = t;
                         t.currentLocation = tile.location;
                         rotation = prevRotation;
                         ghostObject.transform.eulerAngles = new Vector3(0, 0, rotation * 90);
                     }
-                    else if (!Input.GetKey(KeyCode.LeftShift) || selected.numLeft == 0)
+                    else if (!Input.GetKey(KeyCode.LeftShift) || selected.numLeft == 0 || !(card.costAmount == 0 || ResourceManager.instance.resources.ContainsKey(card.costType) &&
+                                 ResourceManager.instance.resources[card.costType] >= card.costAmount))
                     {
                         selected = null;
                     }

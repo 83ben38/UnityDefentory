@@ -11,14 +11,31 @@ public class Button : MonoBehaviour, IPointerClickHandler
     private bool onThis = false;
     public TextMeshProUGUI countText;
     public int numLeft;
+    public TextMeshProUGUI priceText;
+    public Image priceImage;
     public void Start()
     {
         childObject.GetComponent<Image>().sprite = info.prefab.GetComponent<SpriteRenderer>().sprite;
+        
+        if (info.costAmount != 0)
+        {
+            priceImage.sprite = ResourceManager.instance.shapes[(int)info.costType];
+            priceText.text = info.costAmount.ToString();
+        }
+        else
+        {
+            priceImage.enabled = false;
+            priceText.text = "Free!";
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        MouseFollower.instance.setPrefab(this);
+        if (info.costAmount == 0 || ResourceManager.instance.resources.ContainsKey(info.costType) &&
+            ResourceManager.instance.resources[info.costType] >= info.costAmount)
+        {
+            MouseFollower.instance.setPrefab(this);
+        }
     }
 
     public void setNumLeft(int num)
