@@ -18,3 +18,4 @@ MonoBehaviour:
   startingTimes:
   - 0
   difficultyScaling: 0.05
+  lives: 100

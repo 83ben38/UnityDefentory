@@ -10,6 +10,13 @@ public class EnemySpawnManager : MonoBehaviour
     public float credits = 0;
     public float time = 0f;
     public float difficultyScaling = 0f;
+    public static EnemySpawnManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void FixedUpdate()
     {
         time += Time.fixedDeltaTime;

@@ -1,6 +1,8 @@
 
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -15,7 +17,6 @@ public class Enemy : MonoBehaviour
     public GameObject hpBar;
     public GameObject damageBar;
     public Vector2Int location;
-    public SpriteRenderer spriteRenderer;
     private void Start()
     {
         hp = maxHP;
@@ -34,7 +35,7 @@ public class Enemy : MonoBehaviour
             damageBar.SetActive(true);
         }
         hp -= damageAmount;
-        if (hp <= 0)
+        if (hp < 1)
         {
             Destroy(gameObject);
         }
@@ -46,7 +47,6 @@ public class Enemy : MonoBehaviour
 
     private void CheckLocation(bool start)
     {
-        takeDamage(1);
         if (start)
         {
             StartCoroutine(StartTile());
@@ -104,6 +104,8 @@ public class Enemy : MonoBehaviour
             transform.localScale = new Vector3(startingScale * (1-i),startingScale * (1-i));
             yield return null;
         }
+
+        LivesManager.instance.TakeDamage((int)hp);
         Destroy(gameObject);
     }
     public IEnumerator Belt()
