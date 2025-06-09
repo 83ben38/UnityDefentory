@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
         Square
     }
 
+    public int size;
     private float hp;
     public float maxHP;
     public GameObject hpBar;
@@ -19,6 +20,10 @@ public class Enemy : MonoBehaviour
     public Vector2Int location;
     private void Start()
     {
+        for (int i = 0; i < size-1; i++)
+        {
+            maxHP *= 5;
+        }
         hp = maxHP;
         hpBar.SetActive(false);
         damageBar.SetActive(false);

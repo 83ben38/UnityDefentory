@@ -47,7 +47,9 @@ public class EnemySpawnManager : MonoBehaviour
             }
             credits -= sc.cost * Mathf.Pow(5, size-1);
             float scale = size >= sizes.Length ? sizes[^1] : sizes[size];
-            Instantiate(sc.prefab).transform.localScale = new Vector3(scale,scale);
+            GameObject go = Instantiate(sc.prefab);
+            go.transform.localScale = new Vector3(scale,scale);
+            go.GetComponent<Enemy>().size = size;
             //one big enemy
         }
         else if (randomValue < 2 / 3f)
@@ -67,7 +69,7 @@ public class EnemySpawnManager : MonoBehaviour
             float scale = size >= sizes.Length ? sizes[^1] : sizes[size];
             for (int i = 0; i < toSpawn; i++)
             {
-                StartCoroutine(WaitSpawn(sc.prefab,new Vector3(scale,scale),i*0.5f));
+                StartCoroutine(WaitSpawn(sc.prefab,new Vector3(scale,scale),i*0.5f,size));
             }
             //spaced enemies
         }
@@ -88,13 +90,13 @@ public class EnemySpawnManager : MonoBehaviour
             float scale = size >= sizes.Length ? sizes[^1] : sizes[size];
             for (int i = 0; i < toSpawn; i++)
             {
-                StartCoroutine(WaitSpawn(sc.prefab,new Vector3(scale,scale),i*0.2f));
+                StartCoroutine(WaitSpawn(sc.prefab,new Vector3(scale,scale),i*0.2f,size));
             }
             // grouped enemies
         }
     }
 
-    public IEnumerator WaitSpawn(GameObject prefab, Vector3 scale, float timeToWait)
+    public IEnumerator WaitSpawn(GameObject prefab, Vector3 scale, float timeToWait, int size)
     {
         float time = 0;
         while (time < timeToWait)
@@ -102,6 +104,8 @@ public class EnemySpawnManager : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
-        Instantiate(prefab).transform.localScale = scale;
+        GameObject go = Instantiate(prefab);
+        go.transform.localScale = scale;
+        go.GetComponent<Enemy>().size = size;
     }
 }
