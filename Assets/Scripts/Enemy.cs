@@ -10,17 +10,43 @@ public class Enemy : MonoBehaviour
         Square
     }
 
+    private float hp;
+    public float maxHP;
+    public GameObject hpBar;
+    public GameObject damageBar;
     public Vector2Int location;
     public SpriteRenderer spriteRenderer;
     private void Start()
     {
+        hp = maxHP;
+        hpBar.SetActive(false);
+        damageBar.SetActive(false);
         transform.position = Vector3.zero;
         location = new Vector2Int(0, 0);
         CheckLocation(true);
     }
 
+    public void takeDamage(float damageAmount)
+    {
+        if (hp == maxHP)
+        {
+            hpBar.SetActive(true);
+            damageBar.SetActive(true);
+        }
+        hp -= damageAmount;
+        if (hp <= 0)
+        {
+            Destroy(gameObject);
+        }
+        Vector3 scale = damageBar.transform.localScale;
+        Vector3 pos = damageBar.transform.localPosition;
+        hpBar.transform.localScale = new Vector3(scale.x, scale.y * hp / maxHP);
+        hpBar.transform.localPosition = new Vector3(pos.x  - (scale.y * (1 - (hp / maxHP))) / 2, pos.y, 0);
+    }
+
     private void CheckLocation(bool start)
     {
+        takeDamage(1);
         if (start)
         {
             StartCoroutine(StartTile());
