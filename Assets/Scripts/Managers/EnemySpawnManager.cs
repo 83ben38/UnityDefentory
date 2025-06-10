@@ -32,80 +32,90 @@ public class EnemySpawnManager : MonoBehaviour
     public float[] sizes;
     public void TrySpawnEnemy()
     {
-        SpawnCard sc = difficulty.getNextCard(time);
-        if (sc.cost > credits)
+        int numWavesToDo = 1;
+        while (Random.value < 0.4f && numWavesToDo < 4)
         {
-            return;
+            numWavesToDo++;
         }
-        float randomValue = Random.value;
-        if (randomValue < 1 / 3f)
-        {
-            int size = 1;
-            while (credits >= sc.cost * Mathf.Pow(5, size))
-            {
-                size++;
-            }
-            credits -= sc.cost * Mathf.Pow(5, size-1);
-            float scale = size >= sizes.Length ? sizes[^1] : sizes[size];
-            GameObject go = Instantiate(sc.prefab);
-            go.transform.localScale = new Vector3(scale,scale);
-            go.GetComponent<Enemy>().size = size;
-            //one big enemy
-        }
-        else if (randomValue < 2 / 3f)
-        {
-            int size = 1;
-            while (credits >= sc.cost * Mathf.Pow(5, size) * 2)
-            {
-                size++;
-            }
 
-            int toSpawn = 0;
-            while (credits >= sc.cost * Mathf.Pow(5, size-1))
-            { 
-                credits -= sc.cost * Mathf.Pow(5, size-1);
-                toSpawn++;
-            }
-            float scale = size >= sizes.Length ? sizes[^1] : sizes[size];
-            for (int i = 0; i < toSpawn; i++)
-            {
-                StartCoroutine(WaitSpawn(sc.prefab,new Vector3(scale,scale),i*0.5f,size));
-            }
-            //spaced enemies
-        }
-        else
+        float toAdd = credits / numWavesToDo;
+        credits = 0;
+        for (int j = 0; j < numWavesToDo; j++)
         {
-            int size = 1;
-            while (credits >= sc.cost * Mathf.Pow(5, size) * 5)
+            credits += toAdd;
+            SpawnCard sc = difficulty.getNextCard(time);
+            if (sc.cost > credits)
             {
-                size++;
+                return;
             }
-
-            int toSpawn = 0;
-            while (credits >= sc.cost * Mathf.Pow(5, size-1))
-            { 
+            float randomValue = Random.value;
+            if (randomValue < 1 / 3f)
+            {
+                int size = 1;
+                while (credits >= sc.cost * Mathf.Pow(5, size))
+                {
+                    size++;
+                }
                 credits -= sc.cost * Mathf.Pow(5, size-1);
-                toSpawn++;
+                StartCoroutine(WaitSpawn(sc.prefab, 0, size));
+                //one big enemy
             }
-            float scale = size >= sizes.Length ? sizes[^1] : sizes[size];
-            for (int i = 0; i < toSpawn; i++)
+            else if (randomValue < 2 / 3f)
             {
-                StartCoroutine(WaitSpawn(sc.prefab,new Vector3(scale,scale),i*0.2f,size));
+                int size = 1;
+                while (credits >= sc.cost * Mathf.Pow(5, size) * 2)
+                {
+                    size++;
+                }
+    
+                int toSpawn = 0;
+                while (credits >= sc.cost * Mathf.Pow(5, size-1))
+                { 
+                    credits -= sc.cost * Mathf.Pow(5, size-1);
+                    toSpawn++;
+                }
+                for (int i = 0; i < toSpawn; i++)
+                {
+                    StartCoroutine(WaitSpawn(sc.prefab,i*0.5f,size));
+                }
+                //spaced enemies
             }
-            // grouped enemies
+            else
+            {
+                int size = 1;
+                while (credits >= sc.cost * Mathf.Pow(5, size) * 5)
+                {
+                    size++;
+                }
+    
+                int toSpawn = 0;
+                while (credits >= sc.cost * Mathf.Pow(5, size-1))
+                { 
+                    credits -= sc.cost * Mathf.Pow(5, size-1);
+                    toSpawn++;
+                }
+                
+                for (int i = 0; i < toSpawn; i++)
+                {
+                    StartCoroutine(WaitSpawn(sc.prefab,i*0.2f,size));
+                }
+                // grouped enemies
+            }
         }
+        
     }
 
-    public IEnumerator WaitSpawn(GameObject prefab, Vector3 scale, float timeToWait, int size)
+    public IEnumerator WaitSpawn(GameObject prefab, float timeToWait, int size)
     {
         float time = 0;
+        float scale = size >= sizes.Length ? sizes[^1] : sizes[size];
         while (time < timeToWait)
         {
             time += Time.deltaTime;
             yield return null;
         }
         GameObject go = Instantiate(prefab);
-        go.transform.localScale = scale;
+        go.transform.localScale = new Vector3(scale,scale);
         go.GetComponent<Enemy>().size = size;
     }
 }
