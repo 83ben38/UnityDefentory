@@ -10,7 +10,15 @@ public class Shape : MonoBehaviour
         Circle,
         Square
     }
-
+    public static int getPower(Type shape)
+    {
+        switch (shape)
+        {
+            case Type.Circle: return 1;
+            case Type.Square: return 3;
+            default: throw new Exception();
+        }
+    }
     public Vector2Int location;
     public SpriteRenderer spriteRenderer;
     private void Start()

@@ -186,6 +186,7 @@ MonoBehaviour:
   location: {x: 0, y: 1}
   rotation: 0
   tileType: 7
+  spawnCard: {fileID: 0}
 --- !u!114 &7522707476487051092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,3 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b895dde1bb48d4b976ff4d8b4b2404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  possibleAmmo: 00000000
+  numAmmoUsed: 1
+  projectilePrefab: {fileID: 6538570858703815912, guid: 5a8aea6dde89cc348af1d4ac897942b4, type: 3}
+  cooldown: 1
+  range: 2

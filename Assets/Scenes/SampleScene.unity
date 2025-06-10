@@ -217,7 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d210ddda2bb98f547869c101a0ac6f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 0
   livesText: {fileID: 1611976751}
 --- !u!1 &205937762
 GameObject:
@@ -915,8 +914,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 13237a2dd963cd34989ba221ce0f299c, type: 2}
   - {fileID: 11400000, guid: 9fd72a2ce38cf2e4194d62c8e57f633a, type: 2}
   - {fileID: 11400000, guid: ae9cd611a95fda14d938c9ddfea4ab44, type: 2}
+  - {fileID: 11400000, guid: 9743922f31b8f8942b99204167ae0a30, type: 2}
   items: []
-  startingNums: 0a000000010000000300000005000000
+  startingNums: 0a00000001000000030000000500000003000000
   childPrefab: {fileID: 23458723571062754, guid: 17b01f6424115704180f1d3193530851, type: 3}
 --- !u!1 &1266335491
 GameObject:

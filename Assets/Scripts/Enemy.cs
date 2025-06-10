@@ -1,5 +1,7 @@
 
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -18,6 +20,7 @@ public class Enemy : MonoBehaviour
     public GameObject hpBar;
     public GameObject damageBar;
     public Vector2Int location;
+    public static List<Enemy> enemies = new List<Enemy>();
     private void Start()
     {
         for (int i = 0; i < size-1; i++)
@@ -30,6 +33,12 @@ public class Enemy : MonoBehaviour
         transform.position = Vector3.zero;
         location = new Vector2Int(0, 0);
         CheckLocation(true);
+        enemies.Add(this);
+    }
+
+    private void OnDestroy()
+    {
+        enemies.Remove(this);
     }
 
     public void takeDamage(float damageAmount)
