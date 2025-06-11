@@ -39,7 +39,7 @@ public class HomingProjectile : Projectile
         {
             if (!alreadyHit.Contains(enemy))
             {
-                if ((enemy.transform.position - transform.position).magnitude <= 0.1f)
+                if ((enemy.transform.position - transform.position).magnitude <= 0.1f + enemy.transform.localScale.x)
                 {
                     if (enemy == target)
                     {
