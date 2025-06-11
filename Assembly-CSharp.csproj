@@ -45,28 +45,29 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\ButtonMaker.cs" />
     <Compile Include="Assets\Scripts\Tile Stuff\Combiner.cs" />
     <Compile Include="Assets\Scripts\Projectiles\Projectile.cs" />
     <Compile Include="Assets\Scripts\Managers\MouseFollower.cs" />
     <Compile Include="Assets\Scripts\Managers\CameraMovement.cs" />
-    <Compile Include="Assets\Scripts\Enemy.cs" />
-    <Compile Include="Assets\Scripts\SpawnCard.cs" />
-    <Compile Include="Assets\Scripts\Button.cs" />
+    <Compile Include="Assets\Scripts\Cards\TileCard.cs" />
+    <Compile Include="Assets\Scripts\Misc\ButtonMaker.cs" />
     <Compile Include="Assets\Scripts\Managers\LivesManager.cs" />
     <Compile Include="Assets\Scripts\Managers\ResourceManager.cs" />
-    <Compile Include="Assets\Scripts\Shape.cs" />
     <Compile Include="Assets\Scripts\Tile Stuff\Tunnel.cs" />
     <Compile Include="Assets\Scripts\Managers\GridController.cs" />
-    <Compile Include="Assets\Scripts\Difficulty.cs" />
+    <Compile Include="Assets\Scripts\Cards\SpawnCard.cs" />
     <Compile Include="Assets\Scripts\Tile Stuff\Turret.cs" />
-    <Compile Include="Assets\Scripts\Card.cs" />
+    <Compile Include="Assets\Scripts\Shapes\Shape.cs" />
+    <Compile Include="Assets\Scripts\Cards\Card.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Tile Stuff\Tile.cs" />
     <Compile Include="Assets\Scripts\Tile Stuff\ShapeSpawner.cs" />
-    <Compile Include="Assets\Scripts\AnimationSync.cs" />
     <Compile Include="Assets\Scripts\Managers\EnemySpawnManager.cs" />
     <Compile Include="Assets\Scripts\Managers\Animation Controller.cs" />
+    <Compile Include="Assets\Scripts\Cards\Difficulty.cs" />
+    <Compile Include="Assets\Scripts\Misc\AnimationSync.cs" />
     <Compile Include="Assets\Scripts\Managers\EnemyPathingManager.cs" />
+    <Compile Include="Assets\Scripts\Misc\Button.cs" />
     <Compile Include="Assets\Scripts\Projectiles\HomingProjectile.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

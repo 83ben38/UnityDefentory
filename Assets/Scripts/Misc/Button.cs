@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Button : MonoBehaviour, IPointerClickHandler
 {
     public GameObject childObject;
-    public Card info;
+    public TileCard info;
     public static bool onAny = false;
     private bool onThis = false;
     public TextMeshProUGUI countText;

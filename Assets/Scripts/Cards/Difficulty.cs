@@ -8,6 +8,9 @@ public class Difficulty : ScriptableObject
     public List<float> startingTimes = new();
     public float difficultyScaling;
     public int lives;
+    public float gracePeriod;
+    public float waveTime;
+    public float waveBonus;
     private int totalWeight = 0;
     private int currentNext = 0;
     public SpawnCard getNextCard(float time)

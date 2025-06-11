@@ -11,21 +11,54 @@ public class EnemySpawnManager : MonoBehaviour
     private float time = 0f;
     private float difficultyScaling = 0f;
     public static EnemySpawnManager instance;
-
+    public float lastWaveUpdate;
+    public GameObject progressBar;
+    private float initialScale;
     private void Awake()
     {
         instance = this;
     }
 
+    private void Start()
+    {
+        lastWaveUpdate = difficulty.gracePeriod;
+        initialScale = progressBar.transform.localScale.x;
+    }
+
     private void FixedUpdate()
     {
-        time += Time.fixedDeltaTime;
-        difficultyScaling += difficulty.difficultyScaling * Time.fixedDeltaTime;
-        credits += difficultyScaling *  Time.fixedDeltaTime;
-        float randomValue = Random.value;
-        if (randomValue < credits / (difficultyScaling * 1000))
+        if (time < difficulty.gracePeriod && time + Time.fixedDeltaTime >= difficulty.gracePeriod)
         {
-            TrySpawnEnemy();
+            LivesManager.instance.NextWave();
+        }
+        time += Time.fixedDeltaTime;
+        
+        if (time >= difficulty.gracePeriod)
+        {
+            if (time >= lastWaveUpdate + difficulty.waveTime)
+            {
+                credits += difficultyScaling * difficulty.waveBonus;
+                lastWaveUpdate += difficulty.waveTime;
+                LivesManager.instance.NextWave();
+            }
+            Vector3 scale = progressBar.transform.localScale;
+            scale.x = initialScale * (time-lastWaveUpdate) / difficulty.waveTime;
+            progressBar.transform.localScale = scale;
+            progressBar.transform.localPosition = new Vector3(-93+(scale.x*250),progressBar.transform.localPosition.y);
+            difficultyScaling += difficulty.difficultyScaling * Time.fixedDeltaTime;
+            credits += difficultyScaling * Time.fixedDeltaTime;
+            float randomValue = Random.value;
+            if (randomValue < credits / (difficultyScaling * 1000))
+            {
+                TrySpawnEnemy();
+            }
+        }
+        else
+        {
+            Vector3 scale = progressBar.transform.localScale;
+            scale.x = initialScale * time / difficulty.gracePeriod;
+            progressBar.transform.localScale = scale;
+            progressBar.transform.localPosition = new Vector3(-93+(scale.x*250),progressBar.transform.localPosition.y);
         }
     }
 

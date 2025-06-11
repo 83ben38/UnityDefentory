@@ -17,5 +17,8 @@ MonoBehaviour:
   weights: 01000000
   startingTimes:
   - 0
-  difficultyScaling: 0.05
+  difficultyScaling: 0.03
   lives: 100
+  gracePeriod: 10
+  waveTime: 20
+  waveBonus: 10

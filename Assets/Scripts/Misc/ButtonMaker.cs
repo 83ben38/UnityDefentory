@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonMaker : MonoBehaviour
 {
-    public List<Card> startingItems = new List<Card>();
+    public List<TileCard> startingItems = new List<TileCard>();
     public List<Button> items = new List<Button>();
     public List<int> startingNums = new List<int>();
     public GameObject childPrefab;
@@ -24,7 +24,7 @@ public class ButtonMaker : MonoBehaviour
         }
     }
 
-    public void CreateChild(Card c, int startingNum = 1)
+    public void CreateChild(TileCard c, int startingNum = 1)
     {
         for (int i = 0; i < items.Count; i++)
         {
