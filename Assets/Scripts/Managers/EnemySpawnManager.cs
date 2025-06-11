@@ -7,9 +7,9 @@ using Random = UnityEngine.Random;
 public class EnemySpawnManager : MonoBehaviour
 {
     public Difficulty difficulty;
-    public float credits = 0;
-    public float time = 0f;
-    public float difficultyScaling = 0f;
+    private float credits = 0;
+    private float time = 0f;
+    private float difficultyScaling = 0f;
     public static EnemySpawnManager instance;
 
     private void Awake()
