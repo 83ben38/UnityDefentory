@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2744b26a40f9204babe824d8034f159, type: 3}
   m_Name: Belt
   m_EditorClassIdentifier: 
-  numLeft: 10
-  prefab: {fileID: 2534619924203663601, guid: 6b3934915263840398c815e6fc874246, type: 3}
-  serializedCost: 00000000
   display: {fileID: 21300000, guid: 6142461baca6b3c4fab09a0e0dfd3bdd, type: 3}
+  name: Conveyor Belt
+  description: Transfers shapes on it forward 1 tile.
+  prefab: {fileID: 2534619924203663601, guid: 6b3934915263840398c815e6fc874246, type: 3}
+  costType: 0
+  costAmount: 0

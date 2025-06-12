@@ -30,10 +30,18 @@ public class Button : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (info.costAmount == 0 || ResourceManager.instance.resources.ContainsKey(info.costType) &&
-            ResourceManager.instance.resources[info.costType] >= info.costAmount)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            MouseFollower.instance.setPrefab(this);
+            if (info.costAmount == 0 || ResourceManager.instance.resources.ContainsKey(info.costType) &&
+                ResourceManager.instance.resources[info.costType] >= info.costAmount)
+            {
+                MouseFollower.instance.setPrefab(this);
+            }
+        }
+
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            OverlayController.instance.setOverlay(info);
         }
     }
 
@@ -59,7 +67,7 @@ public class Button : MonoBehaviour, IPointerClickHandler
 
     
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (RectTransformUtility.RectangleContainsScreenPoint((RectTransform)transform,Input.mousePosition))
         {
@@ -68,7 +76,7 @@ public class Button : MonoBehaviour, IPointerClickHandler
             Vector3 position = transform.localPosition;
             if (position.y < 50f)
             {
-                transform.localPosition = new Vector3(position.x, position.y + 2f);
+                transform.localPosition = new Vector3(position.x, position.y + Time.fixedDeltaTime * 400f);
             }
         }
         else
@@ -80,7 +88,7 @@ public class Button : MonoBehaviour, IPointerClickHandler
             Vector3 position = transform.localPosition;
             if (position.y > -20f)
             {
-                transform.localPosition = new Vector3(position.x, position.y - 2f);
+                transform.localPosition = new Vector3(position.x, position.y - Time.fixedDeltaTime * 400f);
             }
             onThis = false;
         }

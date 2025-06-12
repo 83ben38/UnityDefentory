@@ -63,6 +63,21 @@ public class MouseFollower : MonoBehaviour
             }
         }
 
+        if (Input.GetMouseButtonDown(1) && !Button.onAny)
+        {
+            Vector3 mouseScreenPosition = Input.mousePosition;
+            Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(mouseScreenPosition);
+            mouseWorldPosition.z = 0f;
+            mouseWorldPosition.y = Mathf.RoundToInt(mouseWorldPosition.y);
+            mouseWorldPosition.x = Mathf.RoundToInt(mouseWorldPosition.x);
+            Vector2Int pos = new Vector2Int((int)mouseWorldPosition.x, (int)mouseWorldPosition.y);
+            if (GridController.instance.grid.ContainsKey(pos))
+            {
+                Tile t = GridController.instance.grid[pos];
+                OverlayController.instance.setOverlay(t.spawnCard);
+            }
+        }
+
         if (Input.GetMouseButtonDown(0) && !Button.onAny)
         {
             if (selected)
