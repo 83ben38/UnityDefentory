@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2744b26a40f9204babe824d8034f159, type: 3}
-  m_Name: Blue Belt
+  m_Name: Combinerrrr
   m_EditorClassIdentifier: 
-  display: {fileID: 21300000, guid: ba97960682bfbd74cabe9f027920e165, type: 3}
-  name: Enemy Belt
-  description: Used to make the path of the enemies.
-  prefab: {fileID: 2534619924203663601, guid: 7b49aa6d1e869114097a9f71fb5b17f9, type: 3}
+  display: {fileID: 21300000, guid: a3793b1501184406fbb7d93edb0c0dd4, type: 3}
+  name: Combiner
+  description: Combines two shapes to make a better one.
+  prefab: {fileID: 8623571972799993825, guid: 5ad61cf55898b4c2fa305c50cb033194, type: 3}
   costType: 0
-  costAmount: 0
+  costAmount: 5
