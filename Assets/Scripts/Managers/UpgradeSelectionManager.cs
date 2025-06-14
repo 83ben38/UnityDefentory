@@ -31,8 +31,11 @@ public class UpgradeSelectionManager : MonoBehaviour
                 {
                     cards[i] = ChipManager.instance.available[(int)(ChipManager.instance.available.Count * Random.value)];
                 }
-                cards[i] = UpgradeManager.instance.notUnlocked[
-                    (int)(UpgradeManager.instance.notUnlocked.Count * Random.value)];
+                else
+                {
+                    cards[i] = UpgradeManager.instance.notUnlocked[
+                        (int)(UpgradeManager.instance.notUnlocked.Count * Random.value)];
+                }
             }
             else if (num == 3)
             {

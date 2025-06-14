@@ -23,6 +23,7 @@ public class EnemySpawnManager : MonoBehaviour
     {
         lastWaveUpdate = difficulty.gracePeriod;
         initialScale = progressBar.transform.localScale.x;
+        StartCoroutine(giveAdditionalUpgrades(5, true));
     }
 
     private void FixedUpdate()
@@ -30,6 +31,7 @@ public class EnemySpawnManager : MonoBehaviour
         if (time < difficulty.gracePeriod && time + Time.fixedDeltaTime >= difficulty.gracePeriod)
         {
             LivesManager.instance.NextWave();
+            StartCoroutine(giveAdditionalUpgrades(2, false));
         }
         time += Time.fixedDeltaTime;
         
@@ -62,6 +64,17 @@ public class EnemySpawnManager : MonoBehaviour
         }
     }
 
+    public IEnumerator giveAdditionalUpgrades(int num, bool tileOnly)
+    {
+        for (int i = 0; i < num; i++)
+        {
+            while (UpgradeSelectionManager.instance.isOverlayActive)
+            {
+                yield return null;
+            }
+            UpgradeSelectionManager.instance.setOverlay(tileOnly);
+        }
+    }
     public float[] sizes;
     public void TrySpawnEnemy()
     {
