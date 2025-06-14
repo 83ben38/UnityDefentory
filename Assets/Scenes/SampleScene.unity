@@ -928,7 +928,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ec4bec435f261db4392573a44bb58136, type: 3}
   - {fileID: 21300000, guid: 1310907a29548483fa902dda6441bd73, type: 3}
   - {fileID: 21300000, guid: 0ef537e7931d34515a43357e329e4bce, type: 3}
-  turret: {fileID: 11400000, guid: 9743922f31b8f8942b99204167ae0a30, type: 2}
 --- !u!1 &433827641
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,6 +2988,62 @@ MonoBehaviour:
   startingVortexes:
   - {fileID: 205937767}
   - {fileID: 856286872}
+--- !u!1 &2051520094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2051520096}
+  - component: {fileID: 2051520095}
+  m_Layer: 0
+  m_Name: TileSelectionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2051520095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051520094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434feba57410cdb4d841dfb773e8f154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapeMakers:
+  - {fileID: 11400000, guid: 9fd72a2ce38cf2e4194d62c8e57f633a, type: 2}
+  enemyBelts:
+  - {fileID: 11400000, guid: ae9cd611a95fda14d938c9ddfea4ab44, type: 2}
+  belts:
+  - {fileID: 11400000, guid: 83d56f605ea695946bea29e3992cf47e, type: 2}
+  - {fileID: 11400000, guid: 13237a2dd963cd34989ba221ce0f299c, type: 2}
+  - {fileID: 11400000, guid: 2ac219bbfc03d3742bf9d8f5b1304f93, type: 2}
+  combiners:
+  - {fileID: 11400000, guid: 9dbed25b78e446b489836e925d4d2c32, type: 2}
+  turrets:
+  - {fileID: 11400000, guid: 9743922f31b8f8942b99204167ae0a30, type: 2}
+--- !u!4 &2051520096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051520094}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 377.6607, y: 215.54387, z: 0.23418382}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2106656074 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5644166901279076982, guid: 255f1517a32279f41b168d364a39dba0, type: 3}
@@ -3110,3 +3165,4 @@ SceneRoots:
   - {fileID: 856286874}
   - {fileID: 1734867578}
   - {fileID: 1622430454}
+  - {fileID: 2051520096}

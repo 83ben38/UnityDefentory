@@ -6,7 +6,6 @@ public class UpgradeSelectionManager : MonoBehaviour
     public Choice[] choices;
     public bool isOverlayActive = false;
     public Sprite[] backgrounds;
-    public TileCard turret;
     private void Awake()
     {
         instance = this;
@@ -16,24 +15,26 @@ public class UpgradeSelectionManager : MonoBehaviour
         stopOverlay();
     }
 
-    public void setOverlay()
+    public void setOverlay(bool onlyTiles = false)
     {
         Card[] cards = new Card[3];
         for (int i = 0; i < 3; i++)
         {
             int num = Random.Range(0, 4);
-            if (num < 2)
+            if (num < 2 || onlyTiles)
             {
-                cards[i] = turret;
-                //do shenanigans
+                cards[i] = TileChoiceManager.instance.generateTileCard();
             }
-
-            if (num == 2)
+            else if (num == 2)
             {
-                cards[i] = UpgradeManager.instance.notUnlocked[(int)(UpgradeManager.instance.notUnlocked.Count * Random.value)];
+                if (UpgradeManager.instance.notUnlocked.Count == 0)
+                {
+                    cards[i] = ChipManager.instance.available[(int)(ChipManager.instance.available.Count * Random.value)];
+                }
+                cards[i] = UpgradeManager.instance.notUnlocked[
+                    (int)(UpgradeManager.instance.notUnlocked.Count * Random.value)];
             }
-
-            if (num == 3)
+            else if (num == 3)
             {
                 cards[i] = ChipManager.instance.available[(int)(ChipManager.instance.available.Count * Random.value)];
             }
