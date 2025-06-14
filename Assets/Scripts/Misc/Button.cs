@@ -15,7 +15,7 @@ public class Button : MonoBehaviour, IPointerClickHandler
     public Image priceImage;
     public void Start()
     {
-        childObject.GetComponent<Image>().sprite = info.prefab.GetComponent<SpriteRenderer>().sprite;
+        childObject.GetComponent<Image>().sprite = info.display;
         
         if (info.costAmount != 0)
         {
