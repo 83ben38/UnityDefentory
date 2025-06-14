@@ -8,6 +8,7 @@ public class UpgradeCard : Card
     public Upgrade upgrade;
     public enum Upgrade
     {
-        
+        TestUpgrade,
+        DoubleDamageCircles
     }
 }

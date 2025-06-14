@@ -7,6 +7,6 @@ public class ChipCard : Card
     public Chip chip;
     public enum Chip
     {
-        
+        TestChip
     }
 }

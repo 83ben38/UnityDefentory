@@ -11,6 +11,8 @@ public class Choice : MonoBehaviour, IPointerClickHandler
     public TextMeshProUGUI countText;
     public TextMeshProUGUI costText;
     public Image costImage;
+    public TextMeshProUGUI titleText;
+    public TextMeshProUGUI descriptionText;
     public void OnEnable()
     {
         if (info != null)
@@ -46,7 +48,25 @@ public class Choice : MonoBehaviour, IPointerClickHandler
                 costText.enabled = false;
                 costImage.enabled = false;
             }
-            //setup display
+            if (info is UpgradeCard uc)
+            {
+                descriptionText.enabled = true;
+                titleText.enabled = true;
+                titleText.text = info.name;
+                descriptionText.text = uc.cardText;
+                background.sprite = UpgradeSelectionManager.instance.backgrounds[1];
+            }
+            else if (info is ChipCard cc){
+                 descriptionText.enabled = true;
+                 titleText.enabled = true;
+                 titleText.text = info.name;
+                 descriptionText.text = cc.cardText;
+                 background.sprite = UpgradeSelectionManager.instance.backgrounds[2];
+            }
+            else{
+                descriptionText.enabled = false;
+                titleText.enabled = false;
+            }
         }
     }
     public void OnPointerClick(PointerEventData eventData)
@@ -56,6 +76,15 @@ public class Choice : MonoBehaviour, IPointerClickHandler
             if (info is TileCard tc)
             {
                 ButtonMaker.instance.CreateChild(tc,tc.defaultCount);
+            }
+
+            if (info is UpgradeCard uc)
+            {
+                UpgradeManager.instance.unlock(uc.upgrade);
+            }
+            if (info is ChipCard cc)
+            {
+                ChipManager.instance.get(cc.chip);
             }
             UpgradeSelectionManager.instance.stopOverlay();
         }

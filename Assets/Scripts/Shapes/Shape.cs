@@ -14,7 +14,7 @@ public class Shape : MonoBehaviour
     {
         switch (shape)
         {
-            case Type.Circle: return 1;
+            case Type.Circle: return UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.DoubleDamageCircles) ? 2 : 1;
             case Type.Square: return 3;
             default: throw new Exception();
         }
