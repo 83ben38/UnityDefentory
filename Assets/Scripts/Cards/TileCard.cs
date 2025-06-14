@@ -5,4 +5,5 @@ public class TileCard : Card
     public GameObject prefab;
     public Shape.Type costType;
     public int costAmount;
+    public int defaultCount;
 }

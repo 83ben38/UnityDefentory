@@ -18,3 +18,4 @@ MonoBehaviour:
   prefab: {fileID: 2534619924203663601, guid: 9e1d7eff87ce2a54fb7cf699fdf31cc3, type: 3}
   costType: 0
   costAmount: 10
+  defaultCount: 1

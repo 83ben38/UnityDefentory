@@ -28,6 +28,7 @@ public class LivesManager : MonoBehaviour
     {
         wave++;
         waveText.text = "Wave " + wave;
+        UpgradeSelectionManager.instance.setOverlay();
     }
     public void TakeDamage(int damage)
     {

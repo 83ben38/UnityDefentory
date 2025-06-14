@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShapeSpawner : MonoBehaviour
+public class ShapeSpawn : MonoBehaviour
 {
     public float cooldown;
     private float timeLeft;

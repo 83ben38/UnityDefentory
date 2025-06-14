@@ -50,6 +50,7 @@
     <Compile Include="Assets/Scripts/Managers/MouseFollower.cs" />
     <Compile Include="Assets/Scripts/Managers/CameraMovement.cs" />
     <Compile Include="Assets/Scripts/Cards/TileCard.cs" />
+    <Compile Include="Assets/Scripts/Managers/UpgradeSelectionManager.cs" />
     <Compile Include="Assets/Scripts/Misc/ButtonMaker.cs" />
     <Compile Include="Assets/Scripts/Managers/LivesManager.cs" />
     <Compile Include="Assets/Scripts/Managers/ResourceManager.cs" />

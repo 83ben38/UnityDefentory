@@ -24,6 +24,7 @@ public class OverlayController : MonoBehaviour
     public void setOverlay(Card card)
     {
         Time.timeScale = 0;
+        Button.onAny = true;
         gameObject.SetActive(true);
         display.sprite = card.display;
         title.text = card.name;
@@ -42,7 +43,12 @@ public class OverlayController : MonoBehaviour
 
     public void stopOverlay()
     {
-        Time.timeScale = 1;
+        if (!UpgradeSelectionManager.instance.isOverlayActive)
+        {
+            Time.timeScale = 1;
+            Button.onAny = false;
+        }
         gameObject.SetActive(false);
+        
     }
 }

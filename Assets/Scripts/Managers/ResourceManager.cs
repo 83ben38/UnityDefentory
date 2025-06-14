@@ -23,7 +23,7 @@ public class ResourceManager : MonoBehaviour
             if (!texts.ContainsKey(type))
             {
                 GameObject go = Instantiate(childPrefab, transform);
-                go.transform.localPosition = new Vector3((texts.Count%5)*150,(texts.Count/5)*150);
+                go.transform.localPosition = new Vector3((texts.Count%4)*150 + 30,(texts.Count/4)*150);
                 texts[type] = go.GetComponentInChildren<TextMeshProUGUI>();
                 go.GetComponentInChildren<Image>().sprite = shapes[(int)type];
             }
