@@ -11,6 +11,7 @@ public class LivesManager : MonoBehaviour
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI waveText;
     private int wave;
+    public GameObject gameOverScreen;
     private void Awake()
     {
         instance = this;
@@ -22,6 +23,7 @@ public class LivesManager : MonoBehaviour
         wave = 0;
         waveText.text = "Wave " + wave;
         livesText.text = lives + "";
+        gameOverScreen.SetActive(false);
     }
 
     public void NextWave()
@@ -34,5 +36,10 @@ public class LivesManager : MonoBehaviour
     {
         lives -= damage;
         livesText.text = lives + "";
+        if (lives <= 0)
+        {
+            gameOverScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }
