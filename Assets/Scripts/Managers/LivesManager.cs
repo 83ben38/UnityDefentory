@@ -19,7 +19,7 @@ public class LivesManager : MonoBehaviour
 
     private void Start()
     {
-        lives = EnemySpawnManager.instance.difficulty.lives;
+        lives = EnemySpawnManager.difficulty.lives;
         wave = 0;
         waveText.text = "Wave " + wave;
         livesText.text = lives + "";

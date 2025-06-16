@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawnManager : MonoBehaviour
 {
-    public Difficulty difficulty;
+    public static Difficulty difficulty;
     private float credits = 0;
     private float time = 0f;
     private float difficultyScaling = 0f;

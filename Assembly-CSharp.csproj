@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Misc\AnimationSync.cs" />
     <Compile Include="Assets\Scripts\Misc\Choice.cs" />
     <Compile Include="Assets\Scripts\Managers\EnemyPathingManager.cs" />
+    <Compile Include="Assets\Scripts\Misc\DifficultySelector.cs" />
     <Compile Include="Assets\Scripts\Misc\Button.cs" />
     <Compile Include="Assets\Scripts\Misc\OverlayController.cs" />
     <Compile Include="Assets\Scripts\Projectiles\HomingProjectile.cs" />
