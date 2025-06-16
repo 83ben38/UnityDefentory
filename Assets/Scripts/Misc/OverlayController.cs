@@ -21,7 +21,7 @@ public class OverlayController : MonoBehaviour
         stopOverlay();
     }
 
-    public void setOverlay(Card card)
+    public void setOverlay(Card card, Tile tile = null)
     {
         Time.timeScale = 0;
         Button.onAny = true;

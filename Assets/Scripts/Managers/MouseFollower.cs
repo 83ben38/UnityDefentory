@@ -74,7 +74,7 @@ public class MouseFollower : MonoBehaviour
             if (GridController.instance.grid.ContainsKey(pos))
             {
                 Tile t = GridController.instance.grid[pos];
-                OverlayController.instance.setOverlay(t.spawnCard);
+                OverlayController.instance.setOverlay(t.spawnCard, t);
             }
         }
 
