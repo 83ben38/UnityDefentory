@@ -8,14 +8,26 @@ public class Shape : MonoBehaviour
     public Type shapeType;
     public enum Type{
         Circle,
-        Square
+        //tier 1
+        Square,
+        Triangle,
+        Pentagon,
+        Lightning,
+        Arrow,
+        //tier 2
+        Rectangle,
+        Trapezoid,
+        Hexagon,
+        Star,
+        Diamond
     }
     public static int getPower(Type shape)
     {
         switch (shape)
         {
             case Type.Circle: return UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.DoubleDamageCircles) ? 2 : 1;
-            case Type.Square: return 3;
+            case Type.Square: case Type.Triangle: case Type.Pentagon: case Type.Lightning: case Type.Arrow: return 3;
+            case Type.Rectangle: case Type.Trapezoid: case Type.Hexagon: case Type.Star: case Type.Diamond: return 10;
             default: throw new Exception();
         }
     }
