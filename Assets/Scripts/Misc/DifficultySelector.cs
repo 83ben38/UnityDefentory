@@ -14,7 +14,7 @@ public class DifficultySelector : MonoBehaviour
         gameObject.SetActive(true);
         foreach (Difficulty difficulty in difficulties)
         {
-            GameObject newButton = Instantiate(buttonPrefab, content);
+            GameObject newButton = Instantiate(buttonPrefab, content, false);
             newButton.GetComponentInChildren<TextMeshProUGUI>().text = difficulty.name;
             newButton.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
             {

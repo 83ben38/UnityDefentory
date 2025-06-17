@@ -11,6 +11,10 @@ public class OverlayController : MonoBehaviour
     public TextMeshProUGUI resourceCounterText;
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
+    public GameObject chip;
+    public Image chipImage;
+    public Tile currentTile;
+    public Sprite defaultChipSprite;
     private void Awake()
     {
         instance = this;
@@ -29,6 +33,25 @@ public class OverlayController : MonoBehaviour
         display.sprite = card.display;
         title.text = card.name;
         description.text = card.description;
+        if (tile)
+        {
+            chip.SetActive(true);
+            if (tile.chip)
+            {
+                chipImage.sprite = tile.chip.display;
+            }
+            else
+            {
+                chipImage.sprite = defaultChipSprite;
+            }
+
+            currentTile = tile;
+        }
+        else
+        {
+            chip.SetActive(false);
+        }
+
         if (card is TileCard && ((TileCard)card).costAmount > 0)
         {
             resourceCounterImage.sprite = ResourceManager.instance.shapes[(int)((TileCard)card).costType];
@@ -48,6 +71,8 @@ public class OverlayController : MonoBehaviour
             Time.timeScale = 1;
             Button.onAny = false;
         }
+
+        currentTile = null;
         gameObject.SetActive(false);
         
     }

@@ -6,7 +6,7 @@ public class Tile : MonoBehaviour
     public int rotation;
     public Type tileType;
     public TileCard spawnCard;
-    public ChipCard.Chip chip;
+    public ChipCard chip;
     public enum Type{
         Belt,
         EnemyBelt,

@@ -84,7 +84,7 @@ public class Choice : MonoBehaviour, IPointerClickHandler
             }
             if (info is ChipCard cc)
             {
-                ChipManager.instance.get(cc.chip);
+                ChipManager.instance.get(cc);
             }
             UpgradeSelectionManager.instance.stopOverlay();
         }
