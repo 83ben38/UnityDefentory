@@ -63,6 +63,10 @@ public class ChipOverlayController : MonoBehaviour
         }
         else
         {
+            foreach(Transform child in scrollParent)
+            {
+                Destroy(child.gameObject);
+            }
             gameObject.SetActive(false);
         }
     }
