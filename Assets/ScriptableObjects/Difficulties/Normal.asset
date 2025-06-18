@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f307aca6568c2a64bbb19ab0a3e5596a, type: 3}
+  m_Name: Normal
+  m_EditorClassIdentifier: 
+  spawnCards:
+  - {fileID: 11400000, guid: 16989f73038b1534c87aff5b1e64429b, type: 2}
+  - {fileID: 11400000, guid: a16ac1b0925a5424a9beb527ae3e1cc4, type: 2}
+  - {fileID: 11400000, guid: 35f60fd4b21ad5544b50a2bc93f77901, type: 2}
+  - {fileID: 11400000, guid: 258f7727c92f5f24db7ad9dfea57e38b, type: 2}
+  - {fileID: 11400000, guid: 32ca7605752e42940bb1340ff89d250a, type: 2}
+  - {fileID: 11400000, guid: 5c6a18e6561680a4193d8e17c08eb786, type: 2}
+  - {fileID: 11400000, guid: ba774254e95187645a6c0ff11e4c9644, type: 2}
+  weights: 03000000030000000300000002000000020000000100000001000000
+  startingTimes:
+  - 0
+  - 60
+  - 60
+  - 100
+  - 100
+  - 160
+  - 160
+  difficultyScaling: 0.03
+  lives: 100
+  gracePeriod: 20
+  waveTime: 20
+  waveBonus: 5

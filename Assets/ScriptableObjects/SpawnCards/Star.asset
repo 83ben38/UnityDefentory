@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Star
   m_EditorClassIdentifier: 
   prefab: {fileID: 6538570858703815912, guid: e7790ba626da2ac459e891a8a47e9140, type: 3}
-  cost: 2
+  cost: 3
