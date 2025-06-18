@@ -45,7 +45,7 @@ public class HomingProjectile : Projectile
                     {
                         target = null;
                     }
-                    enemy.takeDamage(damage);
+                    enemy.takeDamage(damage, "homing");
                     pierceLeft--;
                     if (pierceLeft == 0)
                     {

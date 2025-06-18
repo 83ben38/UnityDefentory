@@ -14,8 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnCards:
   - {fileID: 11400000, guid: 16989f73038b1534c87aff5b1e64429b, type: 2}
-  weights: 01000000
+  - {fileID: 11400000, guid: a16ac1b0925a5424a9beb527ae3e1cc4, type: 2}
+  - {fileID: 11400000, guid: 35f60fd4b21ad5544b50a2bc93f77901, type: 2}
+  - {fileID: 11400000, guid: 258f7727c92f5f24db7ad9dfea57e38b, type: 2}
+  - {fileID: 11400000, guid: 5c6a18e6561680a4193d8e17c08eb786, type: 2}
+  - {fileID: 11400000, guid: ba774254e95187645a6c0ff11e4c9644, type: 2}
+  weights: 010000000100000001000000010000000100000001000000
   startingTimes:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   - 0
   difficultyScaling: 0.03
   lives: 100
