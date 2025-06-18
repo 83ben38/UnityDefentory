@@ -943,8 +943,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulties:
+  - {fileID: 11400000, guid: fe84c978c341f440787506ae1b5634f2, type: 2}
   - {fileID: 11400000, guid: 6c6d7aac720cc0d44855b13f67e90910, type: 2}
-  - {fileID: 11400000, guid: 3b2367721f818430aafe0bc89e9c68bc, type: 2}
+  - {fileID: 11400000, guid: f4fed8291a65f4011a449a40781387a8, type: 2}
+  - {fileID: 11400000, guid: 16decc52901124d87b368bb923672ee9, type: 2}
   buttonPrefab: {fileID: 3141947621303077538, guid: d8ce928175dd1124d92aaed53a624758, type: 3}
   content: {fileID: 1120289475}
 --- !u!1 &1721186937

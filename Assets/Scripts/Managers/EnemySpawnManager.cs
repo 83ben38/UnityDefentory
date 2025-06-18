@@ -31,6 +31,7 @@ public class EnemySpawnManager : MonoBehaviour
         if (time < difficulty.gracePeriod && time + Time.fixedDeltaTime >= difficulty.gracePeriod)
         {
             LivesManager.instance.NextWave();
+            difficultyScaling = difficulty.initialDifficultyScaling;
             StartCoroutine(giveAdditionalUpgrades(2, false));
         }
         time += Time.fixedDeltaTime;

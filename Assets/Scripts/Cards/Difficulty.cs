@@ -11,6 +11,7 @@ public class Difficulty : ScriptableObject
     public float gracePeriod;
     public float waveTime;
     public float waveBonus;
+    public float initialDifficultyScaling;
     private int totalWeight = 0;
     private int currentNext = 0;
     public SpawnCard getNextCard(float time)

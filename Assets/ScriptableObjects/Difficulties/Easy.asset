@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f307aca6568c2a64bbb19ab0a3e5596a, type: 3}
-  m_Name: Normal
+  m_Name: Easy
   m_EditorClassIdentifier: 
   spawnCards:
   - {fileID: 11400000, guid: 16989f73038b1534c87aff5b1e64429b, type: 2}
@@ -20,18 +20,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 32ca7605752e42940bb1340ff89d250a, type: 2}
   - {fileID: 11400000, guid: 5c6a18e6561680a4193d8e17c08eb786, type: 2}
   - {fileID: 11400000, guid: ba774254e95187645a6c0ff11e4c9644, type: 2}
-  weights: 03000000030000000300000002000000020000000100000001000000
+  weights: 0a000000040000000400000002000000020000000100000001000000
   startingTimes:
   - 0
-  - 60
-  - 60
-  - 100
-  - 100
-  - 160
-  - 160
-  difficultyScaling: 0.03
-  lives: 100
-  gracePeriod: 20
+  - 110
+  - 110
+  - 210
+  - 310
+  - 410
+  - 510
+  difficultyScaling: 0.02
+  lives: 200
+  gracePeriod: 30
   waveTime: 20
-  waveBonus: 5
-  initialDifficultyScaling: 1
+  waveBonus: 2
+  initialDifficultyScaling: 0.5
