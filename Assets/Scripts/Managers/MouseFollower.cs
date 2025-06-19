@@ -85,6 +85,7 @@ public class MouseFollower : MonoBehaviour
                 if (ghostObject.activeSelf)
                 {
                     GameObject go = Instantiate(tileCard.prefab);
+                    go.SetActive(true);
                     var position = go.transform.position;
                     position = ghostObject.transform.position;
                     go.transform.position = position;

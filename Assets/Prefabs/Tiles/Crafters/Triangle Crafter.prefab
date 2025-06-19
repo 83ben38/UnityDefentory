@@ -240,7 +240,7 @@ MonoBehaviour:
   spawnAmount: 1
   prefab: {fileID: 6538570858703815912, guid: b6b35c2427edb804a97dfea236bf2350, type: 3}
   requirements: 000000000000000000000000
-  animator: {fileID: 0}
+  animator: {fileID: 3057184600127911636}
   tile: {fileID: 1621222762777700341}
 --- !u!1 &8709105705906240329
 GameObject:
