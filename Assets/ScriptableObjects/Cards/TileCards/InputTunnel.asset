@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: InputTunnel
   m_EditorClassIdentifier: 
   display: {fileID: 21300000, guid: a80d3224817ef42e4a374104cd58530c, type: 3}
-  name: Input tunnel
+  name: Input Tunnel
   description: Tranfers a shape to the output tunnel.
   prefab: {fileID: 2534619924203663601, guid: 473b66ce009c2429a96adee5c8a53033, type: 3}
   costType: 0
   costAmount: 10
-  defaultCount: 2
+  defaultCount: 3

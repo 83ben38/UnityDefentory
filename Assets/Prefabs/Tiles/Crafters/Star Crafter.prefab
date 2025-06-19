@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 1621222762777700341}
   - component: {fileID: 2838530296377104567}
   m_Layer: 0
-  m_Name: Trapezoid Crafter
+  m_Name: Star Crafter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +196,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 83b353fe19a96432d917ab27916b9531, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 664978e4c6a1b4240a3d10375514fe99, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -238,8 +238,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 4
   spawnAmount: 1
-  prefab: {fileID: 6538570858703815912, guid: 99ca3c6d7c1ddef47813ac678a02aca9, type: 3}
-  requirements: 020000000200000002000000
+  prefab: {fileID: 6538570858703815912, guid: 8efb72b0753880342bfaedef35eac454, type: 3}
+  requirements: 040000000400000004000000
   animator: {fileID: 0}
   tile: {fileID: 1621222762777700341}
 --- !u!1 &8709105705906240329
@@ -252,9 +252,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7508526368476276940}
   - component: {fileID: 6649242465416443449}
-  - component: {fileID: 6983319499010399672}
+  - component: {fileID: 9017241815685046045}
   m_Layer: 0
-  m_Name: Trapezoid Maker
+  m_Name: Rectangle Maker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,7 +316,7 @@ SpriteRenderer:
   m_SortingLayerID: -1092438795
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 24217b437de3e4395a6e3caf0e122e4e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f5aa375399ec24fa38555ec7fb78d030, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -327,7 +327,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &6983319499010399672
+--- !u!95 &9017241815685046045
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -337,7 +337,7 @@ Animator:
   m_GameObject: {fileID: 8709105705906240329}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b893c91cab8ac41e8a83e161e83d45e5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 78e6f54fc191a4a639a1cd317e835974, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

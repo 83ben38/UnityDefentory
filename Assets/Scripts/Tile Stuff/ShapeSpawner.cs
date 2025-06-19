@@ -6,12 +6,14 @@ public class ShapeSpawn : MonoBehaviour
     private float timeLeft;
     public GameObject prefab;
     private Vector2Int location;
+    public Tile tile;
     private void Start()
     {
         Animator animator = GetComponent<Animator>();
         animator.speed = animator.runtimeAnimatorController.animationClips[0].length / cooldown;
         timeLeft = cooldown;
-        location = GetComponentInParent<Tile>().location;
+        tile = GetComponentInParent<Tile>();
+        location = tile.location;
     }
 
     private void FixedUpdate()

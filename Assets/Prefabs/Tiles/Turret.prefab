@@ -187,6 +187,7 @@ MonoBehaviour:
   rotation: 0
   tileType: 7
   spawnCard: {fileID: 0}
+  chip: {fileID: 0}
 --- !u!114 &7522707476487051092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,3 +205,4 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6538570858703815912, guid: 5a8aea6dde89cc348af1d4ac897942b4, type: 3}
   cooldown: 1
   range: 2
+  tile: {fileID: -7675290104242997763}

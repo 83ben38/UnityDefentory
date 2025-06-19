@@ -221,6 +221,8 @@ MonoBehaviour:
   location: {x: 0, y: 1}
   rotation: 0
   tileType: 2
+  spawnCard: {fileID: 0}
+  chip: {fileID: 0}
 --- !u!1 &8709105705906240329
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,3 +344,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 1
   prefab: {fileID: 6538570858703815912, guid: 590b173ba145b0847b34873c8da6d56b, type: 3}
+  tile: {fileID: 1621222762777700341}

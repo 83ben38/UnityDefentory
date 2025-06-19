@@ -12,10 +12,12 @@ public class Turret : MonoBehaviour
     public float cooldown;
     private float timeLeft;
     public float range;
+    public Tile tile;
     private void Start()
     {
         inventory = new Dictionary<Shape.Type, int>();
         timeLeft = cooldown;
+        tile = GetComponentInParent<Tile>();
     }
     private void FixedUpdate()
     {

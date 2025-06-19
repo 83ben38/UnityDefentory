@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   display: {fileID: 21300000, guid: c4c892fbe173e49a28801ae897261064, type: 3}
   name: Output Tunnel
-  description: 
+  description: Receives Shapes from the input tunnel.
   prefab: {fileID: 2534619924203663601, guid: 17758531b54ef413f91296476d84a7f4, type: 3}
   costType: 0
   costAmount: 0
-  defaultCount: 11
+  defaultCount: 3

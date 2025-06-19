@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Circle Maker
   m_EditorClassIdentifier: 
   display: {fileID: 21300000, guid: 63fccd0555d827645a6c4e1c7e4a3ee7, type: 3}
-  name: Cirle Maker
-  description: Generates circles onto a belt, into a turret, or into the yellow vortex.
+  name: Circle Maker
+  description: Creates 1 Circle per second.
   prefab: {fileID: 8623571972799993825, guid: 49223d863e106234fa6eaeba4946626f, type: 3}
   costType: 0
   costAmount: 0
-  defaultCount: 3
+  defaultCount: 2

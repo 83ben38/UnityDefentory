@@ -5,12 +5,14 @@ public class Combiner : MonoBehaviour
 {
     public float cooldown;
     private float timeLeft;
+    public int spawnAmount = 1;
     public GameObject prefab;
     private Vector2Int location;
     public Dictionary<Shape.Type, int> inventory;
     public List<Shape.Type> requirements;
     private Dictionary<Shape.Type, int> requirements2;
     public Animator animator;
+    public Tile tile;
     private void Start()
     {
         inventory = new Dictionary<Shape.Type, int>();
@@ -18,7 +20,8 @@ public class Combiner : MonoBehaviour
         animator.speed = animator.runtimeAnimatorController.animationClips[0].length / cooldown;
         animator.enabled = false;
         timeLeft = cooldown;
-        location = GetComponentInParent<Tile>().location;
+        tile = GetComponentInParent<Tile>();
+        location = tile.location;
         foreach (Shape.Type type in requirements)
         {
             if (!requirements2.ContainsKey(type))
@@ -55,9 +58,22 @@ public class Combiner : MonoBehaviour
             timeLeft -= Time.fixedDeltaTime;
             if (timeLeft <= 0)
             {
-                GameObject go = Instantiate(prefab);
-                go.transform.position = transform.position;
-                go.GetComponent<Shape>().location = location;
+                for (int i = 0; i < spawnAmount; i++)
+                {
+                    GameObject go = Instantiate(prefab);
+                    Vector3 spawnPos = transform.position;
+                    if (tile.rotation % 2 == 0)
+                    {
+                        spawnPos.x += ((i+1f)/(spawnAmount+1)) - 0.5f;
+                    }
+                    else
+                    {
+                        spawnPos.y += ((i+1f)/(spawnAmount+1)) - 0.5f;
+                    }
+                    go.transform.position = spawnPos;
+                    
+                    go.GetComponent<Shape>().location = location;
+                }
                 timeLeft += cooldown;
                 foreach (Shape.Type type in requirements2.Keys)
                 {

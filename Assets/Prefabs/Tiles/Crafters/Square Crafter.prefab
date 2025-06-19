@@ -237,9 +237,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 2
+  spawnAmount: 1
   prefab: {fileID: 6538570858703815912, guid: 0f8379cb6adb6ad428c9082c450e95fb, type: 3}
   requirements: 000000000000000000000000
   animator: {fileID: 2027759584410209398}
+  tile: {fileID: 1621222762777700341}
 --- !u!1 &8709105705906240329
 GameObject:
   m_ObjectHideFlags: 0

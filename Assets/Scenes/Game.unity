@@ -2788,12 +2788,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingItems:
   - {fileID: 11400000, guid: 83d56f605ea695946bea29e3992cf47e, type: 2}
-  - {fileID: 11400000, guid: 13237a2dd963cd34989ba221ce0f299c, type: 2}
   - {fileID: 11400000, guid: 9fd72a2ce38cf2e4194d62c8e57f633a, type: 2}
-  - {fileID: 11400000, guid: ae9cd611a95fda14d938c9ddfea4ab44, type: 2}
   - {fileID: 11400000, guid: 9743922f31b8f8942b99204167ae0a30, type: 2}
+  - {fileID: 11400000, guid: ae9cd611a95fda14d938c9ddfea4ab44, type: 2}
   items: []
-  startingNums: 0a00000001000000030000000500000003000000
+  startingNums: 0a000000030000000300000005000000
   childPrefab: {fileID: 23458723571062754, guid: 17b01f6424115704180f1d3193530851, type: 3}
 --- !u!1 &1096652241
 GameObject:
@@ -3802,7 +3801,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 126126500}
   m_Direction: 2
   m_Value: 0.9999997
-  m_Size: 0.6666667
+  m_Size: 0.6666666
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5012,18 +5011,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434feba57410cdb4d841dfb773e8f154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapeMakers:
-  - {fileID: 11400000, guid: 9fd72a2ce38cf2e4194d62c8e57f633a, type: 2}
   enemyBelts:
   - {fileID: 11400000, guid: ae9cd611a95fda14d938c9ddfea4ab44, type: 2}
   belts:
   - {fileID: 11400000, guid: 83d56f605ea695946bea29e3992cf47e, type: 2}
   - {fileID: 11400000, guid: 13237a2dd963cd34989ba221ce0f299c, type: 2}
   - {fileID: 11400000, guid: 2ac219bbfc03d3742bf9d8f5b1304f93, type: 2}
-  combiners:
-  - {fileID: 11400000, guid: 9dbed25b78e446b489836e925d4d2c32, type: 2}
   turrets:
   - {fileID: 11400000, guid: 9743922f31b8f8942b99204167ae0a30, type: 2}
+  circleSpawner: {fileID: 11400000, guid: 9fd72a2ce38cf2e4194d62c8e57f633a, type: 2}
+  tier1Prefabs:
+  - {fileID: 8623571972799993825, guid: 5ad61cf55898b4c2fa305c50cb033194, type: 3}
+  - {fileID: 8623571972799993825, guid: fe1d0574437da47d78862ba85981fa23, type: 3}
+  - {fileID: 8623571972799993825, guid: d298f20cf7be749cc9253bedca3f260c, type: 3}
+  - {fileID: 8623571972799993825, guid: 000cbd9fee35041c492c259bfc574e2f, type: 3}
+  - {fileID: 8623571972799993825, guid: 7b489bceae9de4875860e36adad84802, type: 3}
+  tier2Prefabs:
+  - {fileID: 8623571972799993825, guid: 3260ee9ca7ae440ae8d7cba29694c19e, type: 3}
+  - {fileID: 8623571972799993825, guid: e447c050432ee451fbf78bf6e6c7c7c1, type: 3}
+  - {fileID: 8623571972799993825, guid: f7883ebd215d62b4f8c382ed2e6326a9, type: 3}
+  - {fileID: 8623571972799993825, guid: 40b16ff1179f9a74c8c5fa05fdddf636, type: 3}
+  - {fileID: 8623571972799993825, guid: 08b4868788e730a4cb4d38948aca1bc2, type: 3}
 --- !u!4 &2051520096
 Transform:
   m_ObjectHideFlags: 0
