@@ -3975,8 +3975,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 126126501}
   m_HandleRect: {fileID: 126126500}
   m_Direction: 2
-  m_Value: 0.9999994
-  m_Size: 0.6666666
+  m_Value: 0.9999997
+  m_Size: 0.6666667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5341,7 +5341,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 13237a2dd963cd34989ba221ce0f299c, type: 2}
   - {fileID: 11400000, guid: 2ac219bbfc03d3742bf9d8f5b1304f93, type: 2}
   turrets:
-  - {fileID: 11400000, guid: 9743922f31b8f8942b99204167ae0a30, type: 2}
+  - {fileID: 11400000, guid: 912f3dfebf90b8a4eb5b6d7aabc580aa, type: 2}
   circleSpawner: {fileID: 11400000, guid: 9fd72a2ce38cf2e4194d62c8e57f633a, type: 2}
   tier1Prefabs:
   - {fileID: 8623571972799993825, guid: 5ad61cf55898b4c2fa305c50cb033194, type: 3}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2744b26a40f9204babe824d8034f159, type: 3}
+  m_Name: TestTurret
+  m_EditorClassIdentifier: 
+  display: {fileID: 21300000, guid: 99c21342df6574fa8b1cc7556c79a32f, type: 3}
+  name: test
+  description: t
+  prefab: {fileID: 2534619924203663601, guid: 3f1ce2dd9b8dc474c8534fcbdc905615, type: 3}
+  costType: 0
+  costAmount: 0
+  defaultCount: 1

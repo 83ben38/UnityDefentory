@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7056737657206509628}
   - component: {fileID: 7330919217142367284}
-  - component: {fileID: 5009016234555122958}
+  - component: {fileID: 6364477730761146674}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: Weakening Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5009016234555122958
+--- !u!114 &6364477730761146674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,11 +94,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6538570858703815912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6d948603f165174fa4d9e0eb7be4c91, type: 3}
+  m_Script: {fileID: 11500000, guid: c471b11e86ab6414189f77ee5cf9c924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  damage: 1
-  pierce: 2
-  lifetime: 5
-  moveSpeed: 10
+  damage: 0
+  pierce: 1
+  lifetime: 10
+  moveSpeed: 5
+  weakenAmount: 1
+  weakenDuration: 5

@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
     public static List<Enemy> enemies = new List<Enemy>();
     private bool hpBarShowing = false;
     private int dodgeCounter = 0;
+    public float stunDuration = 0f;
+    public float bonusDamage = 0f;
     private void Start()
     {
         for (int i = 0; i < size-1; i++)
@@ -62,8 +64,8 @@ public class Enemy : MonoBehaviour
 
     public void takeDamage(float damageAmount, string damageSource)
     {
-        
 
+        damageAmount += bonusDamage;
         if (shapeType == Type.Hexagon)
         {
             damageAmount -= size;
@@ -277,6 +279,16 @@ public class Enemy : MonoBehaviour
         Vector3 difference = end - start;
         for (float i = 0; i < difference.magnitude; i+=Time.deltaTime*speed)
         {
+            if (stunDuration > 0f)
+            {
+                stunDuration -= Time.deltaTime * speed;
+                i -= Time.deltaTime * speed;
+                if (stunDuration <= 0f)
+                {
+                    i -= stunDuration;
+                    stunDuration = 0f;
+                }
+            }
             transform.position = start + difference * i / difference.magnitude;
             yield return null;
         }

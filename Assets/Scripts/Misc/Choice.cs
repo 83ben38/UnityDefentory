@@ -23,6 +23,8 @@ public class Choice : MonoBehaviour, IPointerClickHandler
                 background.sprite = UpgradeSelectionManager.instance.backgrounds[0];
                 costImage.sprite = ResourceManager.instance.shapes[(int)tc.costType];
                 costText.enabled = true;
+                costImage.enabled = true;
+                countText.enabled = true;
                 if (tc.costAmount == 0)
                 {
                     costImage.enabled = false;

@@ -18,11 +18,11 @@ public class HomingProjectile : Projectile
         time = 0;
     }
 
-    private Vector2 moveDirection = new Vector2(0, 0);
-    private float time;
-    private float pierceLeft;
-    private List<Enemy> alreadyHit = new List<Enemy>();
-    private void FixedUpdate()
+    protected Vector2 moveDirection = new Vector2(0, 0);
+    protected float time;
+    protected float pierceLeft;
+    protected List<Enemy> alreadyHit = new List<Enemy>();
+    protected void FixedUpdate()
     {
         time += Time.fixedDeltaTime;
         if (time >= lifetime)
@@ -45,7 +45,7 @@ public class HomingProjectile : Projectile
                     {
                         target = null;
                     }
-                    enemy.takeDamage(damage, "homing");
+                    doDamage(enemy);
                     pierceLeft--;
                     if (pierceLeft == 0)
                     {
@@ -56,5 +56,10 @@ public class HomingProjectile : Projectile
                 }
             }
         }
+    }
+
+    public override void doDamage(Enemy e)
+    {
+        e.takeDamage(damage, "homing");
     }
 }
