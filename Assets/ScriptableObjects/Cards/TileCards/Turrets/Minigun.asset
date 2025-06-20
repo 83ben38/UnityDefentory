@@ -10,12 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2744b26a40f9204babe824d8034f159, type: 3}
-  m_Name: Turret
+  m_Name: Minigun
   m_EditorClassIdentifier: 
   display: {fileID: 21300000, guid: cf56d1598c2e6c54d86895373063d11b, type: 3}
-  name: Turret
-  description: Shoots shapes at enemies.
-  prefab: {fileID: 2534619924203663601, guid: 9e1d7eff87ce2a54fb7cf699fdf31cc3, type: 3}
+  name: Minigun
+  description: 'Ammo Type: Circle
+
+    Damage: 2*Power
+
+    Pierce: 1
+
+    Cooldown:
+    0.3333
+
+    Range: 3'
+  prefab: {fileID: 2534619924203663601, guid: 90bfeb3ab32d7e04c8db6510d4554b96, type: 3}
   costType: 0
-  costAmount: 10
+  costAmount: 100
   defaultCount: 1

@@ -6,7 +6,7 @@ public class ExplodyProjectile : HomingProjectile
     public float explosionLifetime;
 
     protected bool exploding = false;
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
         if (!exploding)
         {

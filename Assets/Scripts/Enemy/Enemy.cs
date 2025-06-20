@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
 
     public int size;
     private float hp;
+    public bool canHeal = true;
     public float maxHP;
     public float speed;
     public GameObject hpBar;
@@ -111,6 +112,10 @@ public class Enemy : MonoBehaviour
     }
     public void heal(float healAmount)
     {
+        if (!canHeal)
+        {
+            return;
+        }
         hp += healAmount;
         if (hp >= maxHP)
         {

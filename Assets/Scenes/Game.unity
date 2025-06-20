@@ -5341,7 +5341,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 13237a2dd963cd34989ba221ce0f299c, type: 2}
   - {fileID: 11400000, guid: 2ac219bbfc03d3742bf9d8f5b1304f93, type: 2}
   turrets:
-  - {fileID: 11400000, guid: 912f3dfebf90b8a4eb5b6d7aabc580aa, type: 2}
+  - {fileID: 11400000, guid: 0da0c9d93f6034b4a85d19e458092959, type: 2}
+  - {fileID: 11400000, guid: 360374a61419f4f40a9146c952a502d0, type: 2}
+  - {fileID: 11400000, guid: 9743922f31b8f8942b99204167ae0a30, type: 2}
+  - {fileID: 11400000, guid: 90b46d50dd48c40e19579b5936235846, type: 2}
+  - {fileID: 11400000, guid: 32a0b254d2acf48ccbd1c91a0dc54b70, type: 2}
+  - {fileID: 11400000, guid: d17f06e87e2dc429dbc79d6fe3bd8885, type: 2}
+  - {fileID: 11400000, guid: 977110e8ad0a14945b3670ccd41562d3, type: 2}
+  - {fileID: 11400000, guid: 77d82660cc9fb42faad96932d5c0139e, type: 2}
+  - {fileID: 11400000, guid: aa941ce042afe4fd6a84d3b0ccaab983, type: 2}
+  - {fileID: 11400000, guid: d968bbf098e974c8c87f4c102cf383b4, type: 2}
+  - {fileID: 11400000, guid: f80f08a73abc8415daed8556f537b63b, type: 2}
+  - {fileID: 11400000, guid: c42332951e9684f80bddc791a09f58bb, type: 2}
   circleSpawner: {fileID: 11400000, guid: 9fd72a2ce38cf2e4194d62c8e57f633a, type: 2}
   tier1Prefabs:
   - {fileID: 8623571972799993825, guid: 5ad61cf55898b4c2fa305c50cb033194, type: 3}
