@@ -39,7 +39,7 @@ public class MouseFollower : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetMouseButtonDown(2) && !Button.onAny)
+        if ((Input.GetMouseButtonDown(2)  || Input.GetKeyDown(KeyCode.X))&& !Button.onAny)
         {
             Vector3 mouseScreenPosition = Input.mousePosition;
             Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(mouseScreenPosition);

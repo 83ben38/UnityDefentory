@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LivesManager : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class LivesManager : MonoBehaviour
         gameOverScreen.SetActive(false);
     }
 
+    public void homeScreen()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void NextWave()
     {
         wave++;
