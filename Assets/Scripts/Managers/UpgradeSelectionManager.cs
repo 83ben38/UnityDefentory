@@ -58,7 +58,7 @@ public class UpgradeSelectionManager : MonoBehaviour
 
     public void stopOverlay()
     {
-        Time.timeScale = 1;
+        Time.timeScale = FastForwardController.currentTimeSpeed;;
         gameObject.SetActive(false);
         isOverlayActive = false;
         Button.onAny = false;

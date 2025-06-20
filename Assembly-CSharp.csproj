@@ -59,6 +59,7 @@
     <Compile Include="Assets/Scripts/Tile Stuff/Tunnel.cs" />
     <Compile Include="Assets/Scripts/Cards/ChipCard.cs" />
     <Compile Include="Assets/Scripts/Managers/GridController.cs" />
+    <Compile Include="Assets/Scripts/Misc/FastForwardController.cs" />
     <Compile Include="Assets/Scripts/Cards/SpawnCard.cs" />
     <Compile Include="Assets/Scripts/Managers/TileChoiceManager.cs" />
     <Compile Include="Assets/Scripts/Tile Stuff/Turret.cs" />

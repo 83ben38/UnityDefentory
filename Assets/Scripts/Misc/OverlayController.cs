@@ -68,7 +68,7 @@ public class OverlayController : MonoBehaviour
     {
         if (!UpgradeSelectionManager.instance.isOverlayActive)
         {
-            Time.timeScale = 1;
+            Time.timeScale = FastForwardController.currentTimeSpeed;
             Button.onAny = false;
         }
 
