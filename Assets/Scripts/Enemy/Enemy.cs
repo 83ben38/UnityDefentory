@@ -218,7 +218,7 @@ public class Enemy : MonoBehaviour
                 yield return null;
             }
 
-            sp.color = new Color(255, 28, 28);
+            sp.color = Color.red;
             transform.localScale *= 0.5f;
         }
 

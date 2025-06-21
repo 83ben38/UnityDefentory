@@ -13,6 +13,7 @@ public class ChipOverlayController : MonoBehaviour
     public Transform scrollParent;
     public Chip chipPrefab;
     public bool isDisplayingChip;
+    public Sprite defaultImage;
     private void Awake()
     {
         instance = this;
@@ -52,6 +53,9 @@ public class ChipOverlayController : MonoBehaviour
             Instantiate(chipPrefab, scrollParent, false);
         }
 
+        chipPrefab.mainChip = false;
+        chipPrefab.info = null;
+        Instantiate(chipPrefab, scrollParent, false);
         isDisplayingChip = false;
     }
 
@@ -79,7 +83,8 @@ public class ChipOverlayController : MonoBehaviour
             ChipManager.instance.inventory.Add(OverlayController.instance.currentTile.chip);
         }
         OverlayController.instance.currentTile.chip = card;
-        OverlayController.instance.chipImage.sprite = card.display;
+        OverlayController.instance.chipImage.sprite = card ? card.display : defaultImage;
+
         stopOverlay();
     }
 }
