@@ -42,6 +42,7 @@ public class OverlayController : MonoBehaviour
             }
             else
             {
+                chipImage.info = null;
                 chipImage.image.sprite = defaultChipSprite;
             }
             chip.SetActive(true);

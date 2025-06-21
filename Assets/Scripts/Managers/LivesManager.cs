@@ -35,6 +35,7 @@ public class LivesManager : MonoBehaviour
         if (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.Healing))
         {
             lives += 5;
+            livesText.text = lives + "";
         }
         UpgradeSelectionManager.instance.setOverlay();
     }
