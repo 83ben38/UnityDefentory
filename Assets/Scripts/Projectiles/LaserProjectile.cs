@@ -5,8 +5,9 @@ public class LaserProjectile : Projectile
 {
     public float damage;
     public float lifetime;
-    public override void setPower(int power)
+    public override void setPower(float power, Tile t)
     {
+        damage += t.getDamageAddition();
         damage *= power;
     }
 

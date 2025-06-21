@@ -7,10 +7,13 @@ public class ShapeSpawn : MonoBehaviour
     public GameObject prefab;
     private Vector2Int location;
     public Tile tile;
+    private float baseAnimatorSpeed;
+    private Animator animator;
     private void Start()
     {
-        Animator animator = GetComponent<Animator>();
-        animator.speed = animator.runtimeAnimatorController.animationClips[0].length / cooldown;
+        animator = GetComponent<Animator>();
+        baseAnimatorSpeed = animator.runtimeAnimatorController.animationClips[0].length / cooldown;
+        animator.speed = baseAnimatorSpeed;
         timeLeft = cooldown;
         tile = GetComponentInParent<Tile>();
         location = tile.location;
@@ -18,7 +21,8 @@ public class ShapeSpawn : MonoBehaviour
 
     private void FixedUpdate()
     {
-        timeLeft -= Time.fixedDeltaTime;
+        animator.speed = baseAnimatorSpeed * tile.getSpeedMultiplier();   
+        timeLeft -= Time.fixedDeltaTime*tile.getSpeedMultiplier();
         if (timeLeft <= 0)
         {
             //create clone of circle

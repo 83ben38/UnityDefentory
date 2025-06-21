@@ -19,4 +19,35 @@ public class Tile : MonoBehaviour
         Splitter,
         Tunnel
     }
+    public float getSpeedMultiplier()
+    {
+        return 1f;
+    }
+    public float getDamageAddition()
+    {
+        return 0f;
+    }
+    public float getPowerMultiplier()
+    {
+        return 1f;
+    }
+    public float getPowerAddition()
+    {
+        return 0f;
+    }
+
+    public int getPierceAddition()
+    {
+        return 0;
+    }
+
+    public float getRangeAddition()
+    {
+        return 0f;
+    }
+
+    public int getPriceReduction(Shape.Type type)
+    {
+        return 0;
+    }
 }

@@ -7,11 +7,13 @@ public class DOTHomingProjectile : HomingProjectile
     public float DOTDamage;
     public float interval;
     public int numHits;
-    public override void setPower(int power)
+    public override void setPower(float power, Tile t)
     {
+        damage += t.getDamageAddition();
+        pierce += t.getPierceAddition();
         damage *= power;
         DOTDamage *= power;
-        numHits *= power;
+        numHits = (int) power * numHits;
     }
     
 

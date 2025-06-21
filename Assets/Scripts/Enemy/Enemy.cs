@@ -169,7 +169,7 @@ public class Enemy : MonoBehaviour
         desinationTile = EnemyPathingManager.instance.getNextTile();
         end = new Vector3(desinationTile.x,desinationTile.y);
         Vector3 difference = end - start;
-        for (float i = 0; i < difference.magnitude; i+=Time.deltaTime*speed)
+        for (float i = 0; i < difference.magnitude; i+=Time.deltaTime*speed*on.getSpeedMultiplier())
         {
             transform.position = start + difference * i / difference.magnitude;
             yield return null;
@@ -282,7 +282,7 @@ public class Enemy : MonoBehaviour
         }
 
         Vector3 difference = end - start;
-        for (float i = 0; i < difference.magnitude; i+=Time.deltaTime*speed)
+        for (float i = 0; i < difference.magnitude; i+=Time.deltaTime*speed*on.getSpeedMultiplier())
         {
             if (stunDuration > 0f)
             {

@@ -7,8 +7,10 @@ public class HomingProjectile : Projectile
     public int pierce;
     public float lifetime;
     public float moveSpeed;
-    public override void setPower(int power)
+    public override void setPower(float power, Tile t)
     {
+        damage += t.getDamageAddition();
+        pierce += t.getPierceAddition();
         damage *= power;
     }
 

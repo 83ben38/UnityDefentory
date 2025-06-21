@@ -13,11 +13,13 @@ public class Combiner : MonoBehaviour
     private Dictionary<Shape.Type, int> requirements2;
     public Animator animator;
     public Tile tile;
+    private float baseAnimatorSpeed;
     private void Start()
     {
         inventory = new Dictionary<Shape.Type, int>();
         requirements2 = new Dictionary<Shape.Type, int>();
-        animator.speed = animator.runtimeAnimatorController.animationClips[0].length / cooldown;
+        baseAnimatorSpeed = animator.runtimeAnimatorController.animationClips[0].length / cooldown;
+        animator.speed = baseAnimatorSpeed;
         animator.enabled = false;
         timeLeft = cooldown;
         tile = GetComponentInParent<Tile>();
@@ -43,9 +45,10 @@ public class Combiner : MonoBehaviour
                 break;
             }
 
-            if (inventory[type] < requirements2[type])
+            if (inventory[type] < requirements2[type]-tile.getPriceReduction(type))
             {
                 hasEnoughResources = false;
+                break;
             }
         }
 
@@ -55,7 +58,8 @@ public class Combiner : MonoBehaviour
         }
         if (animator.enabled)
         {
-            timeLeft -= Time.fixedDeltaTime;
+            animator.speed = baseAnimatorSpeed * tile.getSpeedMultiplier();
+            timeLeft -= Time.fixedDeltaTime*tile.getSpeedMultiplier();
             if (timeLeft <= 0)
             {
                 for (int i = 0; i < spawnAmount; i++)

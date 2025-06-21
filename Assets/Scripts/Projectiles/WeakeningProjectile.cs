@@ -6,8 +6,11 @@ public class WeakeningProjectile : HomingProjectile
 {
     public float weakenAmount;
     public float weakenDuration;
-    public override void setPower(int power)
+    public override void setPower(float power, Tile t)
     {
+        damage += t.getDamageAddition();
+        pierce += t.getPierceAddition();
+        pierce += t.getPierceAddition();
         damage *= power;
         weakenAmount *= power;
     }

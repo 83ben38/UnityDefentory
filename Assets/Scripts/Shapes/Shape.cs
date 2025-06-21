@@ -135,7 +135,7 @@ public class Shape : MonoBehaviour
         }
 
         Vector3 difference = end - start;
-        for (float i = 0; i < difference.magnitude; i+=Time.deltaTime)
+        for (float i = 0; i < difference.magnitude; i+=Time.deltaTime*on.getSpeedMultiplier())
         {
             transform.position = start + difference * i / difference.magnitude;
             yield return null;
@@ -154,7 +154,7 @@ public class Shape : MonoBehaviour
         end = new Vector3(desinationTile.x,desinationTile.y);
 
         Vector3 difference = end - start;
-        for (float i = 0; i < difference.magnitude; i+=Time.deltaTime)
+        for (float i = 0; i < difference.magnitude; i+=Time.deltaTime*on.getSpeedMultiplier())
         {
             transform.position = start + difference * i / difference.magnitude;
             if ((transform.position - new Vector3(on.location.x,on.location.y)).sqrMagnitude > 0.1f && (transform.position - new Vector3(desinationTile.x,desinationTile.y)).sqrMagnitude > 0.1f)

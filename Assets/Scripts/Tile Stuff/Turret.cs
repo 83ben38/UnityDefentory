@@ -21,19 +21,19 @@ public class Turret : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        timeLeft -= Time.fixedDeltaTime;
+        timeLeft -= Time.fixedDeltaTime*tile.getSpeedMultiplier();
         if (!(timeLeft <= 0)) return;
-        Enemy target = Enemy.enemies.FirstOrDefault(t => (t.transform.position - transform.position).magnitude <= range);
+        Enemy target = Enemy.enemies.FirstOrDefault(t => (t.transform.position - transform.position).magnitude <= range+tile.getRangeAddition());
 
         if (!target) return;
-        foreach (var t in possibleAmmo.Where(t => inventory.ContainsKey(t)).Where(t => inventory[t] >= numAmmoUsed))
+        foreach (var t in possibleAmmo.Where(t => inventory.ContainsKey(t)).Where(t => inventory[t] >= Mathf.Min(numAmmoUsed-tile.getPriceReduction(t),1)))
         {
-            inventory[t] -= numAmmoUsed;
+            inventory[t] -= Mathf.Min(numAmmoUsed-tile.getPriceReduction(t),1);
             timeLeft = cooldown;
             GameObject go = Instantiate(projectilePrefab);
             Projectile proj = go.GetComponent<Projectile>();
             go.transform.position = transform.position;
-            proj.setPower(Shape.getPower(t));
+            proj.setPower((Shape.getPower(t)+tile.getPowerAddition())*tile.getPowerMultiplier(), tile);
             proj.target = target;
             break;
         }
