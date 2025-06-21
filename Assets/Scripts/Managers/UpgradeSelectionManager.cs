@@ -29,7 +29,7 @@ public class UpgradeSelectionManager : MonoBehaviour
             {
                 if (UpgradeManager.instance.notUnlocked.Count == 0)
                 {
-                    cards[i] = ChipManager.instance.available[(int)(ChipManager.instance.available.Count * Random.value)];
+                    cards[i] = TileChoiceManager.instance.generateTileCard();
                 }
                 else
                 {
