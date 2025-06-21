@@ -39,7 +39,7 @@ MonoBehaviour:
   - 50
   difficultyScaling: 0.075
   lives: 1
-  gracePeriod: 10
+  gracePeriod: 20
   waveTime: 10
   waveBonus: 5
   initialDifficultyScaling: 3

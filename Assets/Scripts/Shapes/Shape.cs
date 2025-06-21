@@ -21,13 +21,26 @@ public class Shape : MonoBehaviour
         Star,
         Diamond
     }
-    public static int getPower(Type shape)
+    public static float getPower(Type shape)
     {
+        float baseMultiplier = 1f;
+        if (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.IncreasePowerStorage))
+        {
+            baseMultiplier *= Mathf.Max(1f, Mathf.Log10(ResourceManager.instance.resources[shape]));
+        }
         switch (shape)
         {
-            case Type.Circle: return UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.DoubleDamageCircles) ? 2 : 1;
-            case Type.Square: case Type.Triangle: case Type.Pentagon: case Type.Lightning: case Type.Arrow: return 3;
-            case Type.Rectangle: case Type.Trapezoid: case Type.Hexagon: case Type.Star: case Type.Diamond: return 10;
+            case Type.Circle: return baseMultiplier * (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.CirclePowerUp) ? 2 : 1);
+            case Type.Square: return  baseMultiplier * (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.SquarePowerUp) ? 4 : 3);
+            case Type.Triangle: return  baseMultiplier * (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.TrianglePowerUp) ? 4 : 3);
+            case Type.Pentagon: return  baseMultiplier * (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.PentagonPowerUp) ? 4 : 3);
+            case Type.Lightning: return  baseMultiplier * (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.LightningPowerUp) ? 4 : 3);
+            case Type.Arrow: return  baseMultiplier * (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.ArrowPowerUp) ? 4 : 3);
+            case Type.Rectangle: return  baseMultiplier * (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.SquarePowerUp) ? 13 : 10); 
+            case Type.Trapezoid: return  baseMultiplier * (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.TrianglePowerUp) ? 13 : 10); 
+            case Type.Hexagon: return  baseMultiplier * (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.PentagonPowerUp) ? 13 : 10); 
+            case Type.Star: return  baseMultiplier * (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.LightningPowerUp) ? 13 : 10); 
+            case Type.Diamond: return  baseMultiplier * (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.ArrowPowerUp) ? 13 : 10); 
             default: throw new Exception();
         }
     }

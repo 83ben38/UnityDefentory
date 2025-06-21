@@ -10,7 +10,7 @@ public class Combiner : MonoBehaviour
     private Vector2Int location;
     public Dictionary<Shape.Type, int> inventory;
     public List<Shape.Type> requirements;
-    private Dictionary<Shape.Type, int> requirements2;
+    public Dictionary<Shape.Type, int> requirements2;
     public Animator animator;
     public Tile tile;
     private float baseAnimatorSpeed;
@@ -58,8 +58,8 @@ public class Combiner : MonoBehaviour
         }
         if (animator.enabled)
         {
-            animator.speed = baseAnimatorSpeed * tile.getSpeedMultiplier();
-            timeLeft -= Time.fixedDeltaTime*tile.getSpeedMultiplier();
+            animator.speed = baseAnimatorSpeed * tile.getSpeedMultiplier(this);
+            timeLeft -= Time.fixedDeltaTime*tile.getSpeedMultiplier(this);
             if (timeLeft <= 0)
             {
                 for (int i = 0; i < spawnAmount; i++)

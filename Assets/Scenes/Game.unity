@@ -4544,7 +4544,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notUnlocked:
+  - {fileID: 11400000, guid: 51ac21d35b6dd144f83ae0cde986f456, type: 2}
   - {fileID: 11400000, guid: bcebee43351cfe8419c7cb39db14872a, type: 2}
+  - {fileID: 11400000, guid: 785151e4be673f0468c55c13b755d2cf, type: 2}
+  - {fileID: 11400000, guid: 8911f6eba5444ce4ab3dfffecdb97811, type: 2}
+  - {fileID: 11400000, guid: 0f1ca950fb730ca40b01bfc1c6a293d3, type: 2}
+  - {fileID: 11400000, guid: 9ea13c6f3bb34e741b2dd6528a7ead0c, type: 2}
+  - {fileID: 11400000, guid: 5d022612cb927d34ba673eff44532b5e, type: 2}
+  - {fileID: 11400000, guid: 73911223220839c4990c680c057a8023, type: 2}
+  - {fileID: 11400000, guid: da6f2c649dd018d4ebd953ab9f53fc3b, type: 2}
+  - {fileID: 11400000, guid: b2ba7335be2124c44af737298d1a80d0, type: 2}
+  - {fileID: 11400000, guid: eeeab0e0665e13443ba007f99f06a398, type: 2}
+  - {fileID: 11400000, guid: 61ebc069ec2dd2e4c95e716e6305655d, type: 2}
 --- !u!4 &1734867578
 Transform:
   m_ObjectHideFlags: 0

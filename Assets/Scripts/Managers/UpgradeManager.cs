@@ -12,6 +12,14 @@ public class UpgradeManager : MonoBehaviour
       instance = this;
    }
 
+   private void Start()
+   {
+      if (EnemySpawnManager.difficulty.lives == 1)
+      {
+         notUnlocked.RemoveAll((card => card.upgrade == UpgradeCard.Upgrade.Healing));
+      }
+   }
+
    public bool isUpgradeAvailable(UpgradeCard.Upgrade upgrade)
    {
       return unlocked.Contains(upgrade);

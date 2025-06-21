@@ -19,26 +19,44 @@ public class Tile : MonoBehaviour
         Splitter,
         Tunnel
     }
-    public float getSpeedMultiplier()
+    public float getSpeedMultiplier(Combiner c = null)
     {
+        float speedMultiplier = 1f;
         if (chip && chip.chip == ChipCard.Chip.SpeedUpChip)
         {
-            return 2f;
+            speedMultiplier *= 2;
         }
 
         if (chip && chip.chip == ChipCard.Chip.SpeedDownChip)
         {
-            return 0.5f;
+            speedMultiplier *= 0.5f;
         }
-        return 1f;
+
+        if (tileType == Type.EnemyBelt && UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.ReducedSpeedBelts))
+        {
+            speedMultiplier *= 0.8f;
+        }
+
+        if (c &&
+            UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.IncreaseAdvancedCombiners) && c.requirements2.Count > 1)
+        {
+            speedMultiplier *= 1.5f;
+        }
+        return speedMultiplier;
     }
     public float getDamageAddition()
     {
+        float damageAddition = 0f;
         if (chip &&chip.chip == ChipCard.Chip.DamageUpChip)
         {
-            return 2f;
+            damageAddition += 2f;
         }
-        return 0f;
+
+        if (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.DamageForPaths))
+        {
+            damageAddition += EnemyPathingManager.instance.getNumPaths() - 1f;
+        }
+        return damageAddition;
     }
     public float getPowerMultiplier()
     {
@@ -68,11 +86,18 @@ public class Tile : MonoBehaviour
 
     public float getRangeAddition()
     {
+        float rangeAddition = 0f;
         if (chip &&chip.chip == ChipCard.Chip.RangeUpChip)
         {
-            return 1f;
+            rangeAddition++;
         }
-        return 0f;
+
+        if (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.RangeForProximity) &&
+            location.sqrMagnitude <= 16)
+        {
+            rangeAddition++;
+        }
+        return rangeAddition;
     }
 
     public int getPriceReduction(Shape.Type type)

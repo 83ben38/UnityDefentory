@@ -29,6 +29,10 @@ public class DOTHomingProjectile : HomingProjectile
         {
             for (float j = 0; j < interval; j+=Time.deltaTime)
             {
+                if (!e.gameObject)
+                {
+                    yield break;
+                }
                 e.takeDamage(DOTDamage,"DOT");
                 yield return null;
             }

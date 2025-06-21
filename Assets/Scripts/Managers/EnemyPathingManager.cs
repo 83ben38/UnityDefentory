@@ -15,6 +15,10 @@ public class EnemyPathingManager : MonoBehaviour
         instance = this;
     }
 
+    public int getNumPaths()
+    {
+        return outputVortexes.Count;
+    }
     public bool isEnd(Vector2Int position)
     {
         foreach (Tile tile in outputVortexes)

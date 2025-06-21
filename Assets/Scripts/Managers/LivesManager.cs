@@ -8,7 +8,7 @@ public class LivesManager : MonoBehaviour
     public static LivesManager instance;
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI waveText;
-    private int wave;
+    public int wave;
     public GameObject gameOverScreen;
     private void Awake()
     {
@@ -32,6 +32,10 @@ public class LivesManager : MonoBehaviour
     {
         wave++;
         waveText.text = "Wave " + wave;
+        if (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.Healing))
+        {
+            lives += 5;
+        }
         UpgradeSelectionManager.instance.setOverlay();
     }
     public void TakeDamage(int damage)

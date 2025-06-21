@@ -8,7 +8,17 @@ public class UpgradeCard : Card
     public Upgrade upgrade;
     public enum Upgrade
     {
-        TestUpgrade,
-        DoubleDamageCircles
+        CirclePowerUp,
+        SquarePowerUp,
+        TrianglePowerUp,
+        PentagonPowerUp,
+        LightningPowerUp,
+        ArrowPowerUp,
+        ReducedSpeedBelts,
+        IncreaseAdvancedCombiners,
+        IncreasePowerStorage,
+        DamageForPaths,
+        RangeForProximity,
+        Healing
     }
 }
