@@ -7,8 +7,10 @@ using Random = UnityEngine.Random;
 public class EnemySpawnManager : MonoBehaviour
 {
     public static Difficulty difficulty;
+    [SerializeField]
     private float credits = 0;
     private float time = 0f;
+    [SerializeField]
     private float difficultyScaling = 0f;
     public static EnemySpawnManager instance;
     public float lastWaveUpdate;
