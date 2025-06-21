@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f1431ae682540488f7264b2fba503e, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  display: {fileID: 21300000, guid: 6a50e66f550d26c48bfec8f7e44b4f4f, type: 3}
+  display: {fileID: 21300000, guid: b9e0c6af7e6464387a7ddc63377776a1, type: 3}
   name: Test Chip
   description: This chip doesn't do anything
   cardText: nothing

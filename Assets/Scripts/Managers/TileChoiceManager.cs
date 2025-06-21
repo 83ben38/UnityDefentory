@@ -100,7 +100,7 @@ public class TileChoiceManager : MonoBehaviour
 
     public TileCard generateTileCard()
     {
-        int value = Random.Range(0, 9);
+        int value = Random.Range(0, 10);
         if (value < 2)
         {
             if (Random.Range(0, 3) == 0)

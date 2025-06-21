@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a4bc823f74543cfb8b27c3cccbb384, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  display: {fileID: 21300000, guid: cb5f2cfba2001459487b599b4ffac6e7, type: 3}
+  display: {fileID: 21300000, guid: cb6227cd3958c4d45848738846029dac, type: 3}
   name: Test Upgrade
   description: Yo Yo Yo This is A Cool Upgrade.
   cardText: Testing 1 2 3
