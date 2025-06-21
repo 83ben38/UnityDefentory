@@ -48,7 +48,7 @@ public class EnemySpawnManager : MonoBehaviour
             scale.x = initialScale * (time-lastWaveUpdate) / difficulty.waveTime;
             progressBar.transform.localScale = scale;
             progressBar.transform.localPosition = new Vector3(-93+(scale.x*250),progressBar.transform.localPosition.y);
-            difficultyScaling += difficulty.difficultyScaling * Time.fixedDeltaTime * Math.Max(1f,Mathf.Log10(LivesManager.instance.wave));
+            difficultyScaling += difficulty.difficultyScaling * Time.fixedDeltaTime * Math.Max(1f,LivesManager.instance.wave*0.1f);
             credits += difficultyScaling * Time.fixedDeltaTime;
             float randomValue = Random.value;
             if (randomValue < credits / (difficultyScaling * 1000))
