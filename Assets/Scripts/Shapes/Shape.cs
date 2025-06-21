@@ -26,7 +26,10 @@ public class Shape : MonoBehaviour
         float baseMultiplier = 1f;
         if (UpgradeManager.instance.isUpgradeAvailable(UpgradeCard.Upgrade.IncreasePowerStorage))
         {
-            baseMultiplier *= Mathf.Max(1f, Mathf.Log10(ResourceManager.instance.resources[shape]));
+            if (ResourceManager.instance.resources.ContainsKey(shape))
+            {
+                baseMultiplier *= Mathf.Max(1f, Mathf.Log10(ResourceManager.instance.resources[shape]));
+            }
         }
         switch (shape)
         {
