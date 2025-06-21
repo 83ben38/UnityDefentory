@@ -38,7 +38,7 @@ public class ButtonMaker : MonoBehaviour
         b.info = c;
         b.setNumLeft(startingNum);
         items.Add(Instantiate(childPrefab).GetComponent<Button>());
-        items[^1].transform.SetParent(transform);
+        items[^1].transform.SetParent(transform,false);
         RespaceChildren();
     }
 
