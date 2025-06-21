@@ -7,6 +7,15 @@ public class ChipCard : Card
     public Chip chip;
     public enum Chip
     {
-        TestChip
+        SpeedUpChip,
+        SpeedDownChip,
+        PowerUpChip,
+        PowerMultiplyChip,
+        RangeUpChip,
+        PierceUpChip,
+        CirclePriceReductionChip,
+        Tier1PriceReductionChip,
+        Tier2PriceReductionChip,
+        DamageUpChip,
     }
 }

@@ -12,7 +12,7 @@ public class OverlayController : MonoBehaviour
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
     public GameObject chip;
-    public Image chipImage;
+    public Chip chipImage;
     public Tile currentTile;
     public Sprite defaultChipSprite;
     private void Awake()
@@ -35,16 +35,16 @@ public class OverlayController : MonoBehaviour
         description.text = card.description;
         if (tile)
         {
-            chip.SetActive(true);
+            
             if (tile.chip)
             {
-                chipImage.sprite = tile.chip.display;
+                chipImage.info = tile.chip;
             }
             else
             {
-                chipImage.sprite = defaultChipSprite;
+                chipImage.image.sprite = defaultChipSprite;
             }
-
+            chip.SetActive(true);
             currentTile = tile;
         }
         else

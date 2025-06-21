@@ -61,16 +61,16 @@ public class ChipOverlayController : MonoBehaviour
 
     public void stopOverlay()
     {
+        foreach(Transform child in scrollParent)
+        {
+            Destroy(child.gameObject);
+        }
         if (isDisplayingChip)
         {
             startOverlay();
         }
         else
         {
-            foreach(Transform child in scrollParent)
-            {
-                Destroy(child.gameObject);
-            }
             gameObject.SetActive(false);
         }
     }
@@ -83,7 +83,7 @@ public class ChipOverlayController : MonoBehaviour
             ChipManager.instance.inventory.Add(OverlayController.instance.currentTile.chip);
         }
         OverlayController.instance.currentTile.chip = card;
-        OverlayController.instance.chipImage.sprite = card ? card.display : defaultImage;
+        OverlayController.instance.chipImage.image.sprite = card ? card.display : defaultImage;
 
         stopOverlay();
     }

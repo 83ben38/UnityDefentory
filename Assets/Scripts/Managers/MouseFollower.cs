@@ -50,6 +50,10 @@ public class MouseFollower : MonoBehaviour
             if (GridController.instance.grid.ContainsKey(pos))
             {
                 Tile t = GridController.instance.grid[pos];
+                if (t.chip)
+                {
+                    ChipManager.instance.inventory.Add(t.chip);
+                }
                 ButtonMaker.instance.CreateChild(t.spawnCard);
                 Shape.Type shapeType = t.spawnCard.costType;
                 if (!ResourceManager.instance.resources.ContainsKey(shapeType))
